@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MIDIUSB.h"
+#include "pin.hpp"
 
 /*
 CIN (Code Index Number)
@@ -23,10 +24,6 @@ namespace CIN
     constexpr uint8_t SYS_REALTIME = 0x0F; //1Byte
 } // namespace CIN
 
-void parseUSBMIDIPacket(midiEventPacket_t p)
-{
-}
-
 class USBMIDIParser
 {
 public:
@@ -48,8 +45,17 @@ public:
         case CIN::SYSEX_END_3BYTES:
             break;
         case CIN::NOTE_OFF:
+            digitalWrite(LED, HIGH);
             break;
         case CIN::NOTE_ON:
+            if (p.byte3 > 0)
+            {
+                digitalWrite(LED, LOW);
+            }
+            else
+            {
+                digitalWrite(LED, HIGH);
+            }
             break;
         case CIN::POLYPHONIC_KEY_PRESSURE:
             break;

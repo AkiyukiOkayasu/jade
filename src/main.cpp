@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include "MIDIUSB.h"
 #include "MIDIParser.hpp"
+#include "pin.hpp"
 
-constexpr int LED = 13;
 USBMIDIParser midip;
 
 void noteOn(byte channel, byte pitch, byte velocity)
@@ -28,25 +28,6 @@ void loop()
   do
   {
     rx = MidiUSB.read();
-    if (rx.header != 0)
-    {
-      // note on
-      switch (rx.header)
-      {
-      case 0x08:
-        digitalWrite(LED, HIGH);
-        break;
-      case 0x09:
-        if (rx.byte3 > 0)
-        {
-          digitalWrite(LED, LOW);
-        }
-        else
-        {
-          digitalWrite(LED, HIGH);
-        }
-        break;
-      }
-    }
+    midip.parse(rx);
   } while (rx.header != 0);
 }
