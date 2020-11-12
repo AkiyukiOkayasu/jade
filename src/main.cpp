@@ -3,7 +3,7 @@
 #include "MIDIParser.hpp"
 #include "pin.hpp"
 
-USBMIDIParser midip;
+UsbMidiParser midiParser;
 
 void noteOn(byte channel, byte pitch, byte velocity)
 {
@@ -28,6 +28,6 @@ void loop()
   do
   {
     rx = MidiUSB.read();
-    midip.parse(rx);
+    midiParser.parse(rx);
   } while (rx.header != 0);
 }
