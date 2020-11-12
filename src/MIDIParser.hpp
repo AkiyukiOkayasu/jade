@@ -32,62 +32,36 @@ public:
     virtual void ccCallback(const uint_fast8_t cc, const uint_fast8_t value, const uint_fast8_t ch) = 0;
     virtual void sysExCallback(const uint_fast8_t sysEx[], const uint32_t size) = 0;
 };
-    {
-        const uint8_t cin = codeIndexNumber(p);
-        switch (cin)
-        {
-        case CIN::SYSCOMMON_2BYTES:
-            break;
-        case CIN::SYSCOMMON_3BYTES:
-            break;
-        case CIN::SYSEX_START_OR_CONTINUE:
-            break;
-        case CIN::SYSEX_END_1BYTE:
-            break;
-        case CIN::SYSEX_END_2BYTES:
-            break;
-        case CIN::SYSEX_END_3BYTES:
-            break;
-        case CIN::NOTE_OFF:
-            digitalWrite(LED, HIGH);
-            break;
-        case CIN::NOTE_ON:
-            if (p.byte3 > 0)
-            {
-                digitalWrite(LED, LOW);
-            }
-            else
-            {
-                digitalWrite(LED, HIGH);
-            }
-            break;
-        case CIN::POLYPHONIC_KEY_PRESSURE:
-            break;
-        case CIN::CONTROL_CHANGE:
-            break;
-        case CIN::PROGRAM_CHANGE:
-            break;
-        case CIN::CHANNEL_PRESSURE:
-            break;
-        case CIN::PITCH_BEND:
-            break;
-        case CIN::SYS_REALTIME:
-            break;
-        default:
-            break;
-        }
-    }
+
+class UsbMidiParser : public UsbMidiHandler
+{
+public:
+    void parse(midiEventPacket_t p);
+
+    /*
+     Callback functions
+     */
+    void noteOnCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) override;
+    void noteOffCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) override;
+    void ccCallback(const uint_fast8_t cc, const uint_fast8_t value, const uint_fast8_t ch) override;
+    void sysExCallback(const uint_fast8_t sysEx[], const uint32_t size) override;
 
 private:
-    uint8_t cableNumber(midiEventPacket_t p)
+    constexpr uint_fast8_t midiCh(const uint_fast8_t statusByte)
     {
-        // Header上位4bit: CableNumber
-        return (p.header >> 4) & 0x0F;
+        // MIDI StatusByte下位4bit: MIDI channel
+        return statusByte & 0x0F;
     }
 
-    uint8_t codeIndexNumber(midiEventPacket_t p)
+    uint8_t cableNumber(const uint_fast8_t header) const
+    {
+        // Header上位4bit: CableNumber
+        return (header >> 4) & 0x0F;
+    }
+
+    uint8_t codeIndexNumber(const uint_fast8_t header) const
     {
         // Header下位4bit: CodeIndexNumber
-        return p.header & 0x0F;
+        return header & 0x0F;
     }
 };
