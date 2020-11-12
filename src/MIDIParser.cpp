@@ -35,6 +35,7 @@ void UsbMidiParser::parse(midiEventPacket_t p)
     case CIN::POLYPHONIC_KEY_PRESSURE:
         break;
     case CIN::CONTROL_CHANGE:
+        ccCallback(p.byte2, p.byte3, channel);
         break;
     case CIN::PROGRAM_CHANGE:
         break;
@@ -59,8 +60,16 @@ void UsbMidiParser::noteOffCallback(const uint_fast8_t note, const uint_fast8_t 
     digitalWrite(LED, HIGH);
 }
 
-void UsbMidiParser::ccCallback(const uint_fast8_t cc, const uint_fast8_t value, const uint_fast8_t ch)
+void UsbMidiParser::ccCallback(const uint_fast8_t controlNumber, const uint_fast8_t value, const uint_fast8_t ch)
 {
+    if (value > 0)
+    {
+        digitalWrite(LED, LOW);
+    }
+    else
+    {
+        digitalWrite(LED, HIGH);
+    }
 }
 
 void UsbMidiParser::sysExCallback(const uint_fast8_t sysEx[], const uint32_t size)

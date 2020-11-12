@@ -29,7 +29,7 @@ class UsbMidiHandler
 public:
     virtual void noteOnCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) = 0;
     virtual void noteOffCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) = 0;
-    virtual void ccCallback(const uint_fast8_t cc, const uint_fast8_t value, const uint_fast8_t ch) = 0;
+    virtual void ccCallback(const uint_fast8_t controlNumber, const uint_fast8_t value, const uint_fast8_t ch) = 0;
     virtual void sysExCallback(const uint_fast8_t sysEx[], const uint32_t size) = 0;
 };
 
@@ -43,7 +43,7 @@ public:
      */
     void noteOnCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) override;
     void noteOffCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) override;
-    void ccCallback(const uint_fast8_t cc, const uint_fast8_t value, const uint_fast8_t ch) override;
+    void ccCallback(const uint_fast8_t controlNumber, const uint_fast8_t value, const uint_fast8_t ch) override;
     void sysExCallback(const uint_fast8_t sysEx[], const uint32_t size) override;
 
 private:
