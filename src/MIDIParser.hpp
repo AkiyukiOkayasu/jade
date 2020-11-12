@@ -24,10 +24,14 @@ namespace CIN
     constexpr uint8_t SYS_REALTIME = 0x0F; //1Byte
 } // namespace CIN
 
-class USBMIDIParser
+class UsbMidiHandler
 {
 public:
-    void parse(midiEventPacket_t p)
+    virtual void noteOnCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) = 0;
+    virtual void noteOffCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) = 0;
+    virtual void ccCallback(const uint_fast8_t cc, const uint_fast8_t value, const uint_fast8_t ch) = 0;
+    virtual void sysExCallback(const uint_fast8_t sysEx[], const uint32_t size) = 0;
+};
     {
         const uint8_t cin = codeIndexNumber(p);
         switch (cin)
