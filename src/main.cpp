@@ -37,8 +37,9 @@ void setup()
 {
   SerialUSB.begin(9600);
   Wire.begin(); // I2C setup
-  pinMode(LED, HIGH);
-  digitalWrite(LED, HIGH);
+
+  pinMode(pin::LED, HIGH);
+  digitalWrite(pin::LED, HIGH);
   delay(1000);
 }
 

@@ -8,7 +8,6 @@ void UsbMidiParser::parse(midiEventPacket_t p)
     const uint_fast8_t cn = cableNumber(p.header);
     const uint_fast8_t statusByte = p.byte1;
     const uint_fast8_t channel = midiCh(statusByte);
-    static uint_fast8_t tmp[3];
 
     switch (cin)
     {
@@ -98,23 +97,23 @@ void UsbMidiParser::parse(midiEventPacket_t p)
 
 void UsbMidiParser::noteOnCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch)
 {
-    digitalWrite(LED, LOW);
+    digitalWrite(pin::LED, LOW);
 }
 
 void UsbMidiParser::noteOffCallback(const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch)
 {
-    digitalWrite(LED, HIGH);
+    digitalWrite(pin::LED, HIGH);
 }
 
 void UsbMidiParser::ccCallback(const uint_fast8_t controlNumber, const uint_fast8_t value, const uint_fast8_t ch)
 {
     if (value > 0)
     {
-        digitalWrite(LED, LOW);
+        digitalWrite(pin::LED, LOW);
     }
     else
     {
-        digitalWrite(LED, HIGH);
+        digitalWrite(pin::LED, HIGH);
     }
 }
 
