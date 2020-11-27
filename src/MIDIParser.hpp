@@ -1,5 +1,6 @@
 #pragma once
 
+#include <array>
 #include "MIDIUSB.h"
 #include "pin.hpp"
 
@@ -64,4 +65,20 @@ private:
         // Header下位4bit: CodeIndexNumber
         return header & 0x0F;
     }
+
+    void pushSysEx(uint_fast8_t d)
+    {
+        sysExData[sysExIndex] = d;
+        sysExIndex++;
+    }
+
+    void clearSysExFlag()
+    {
+        receivingSysEx = false;
+    }
+
+    static constexpr uint8_t MAX_SYSEX_LENGTH = 32;
+    bool receivingSysEx = false;
+    uint_fast8_t sysExIndex = 0;
+    std::array<uint_fast8_t, MAX_SYSEX_LENGTH> sysExData;
 };
