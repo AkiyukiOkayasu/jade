@@ -36,6 +36,11 @@ void iiJF()
 void setup()
 {
   SerialUSB.begin(9600);
+
+  // I2Cピンの内部プルアップ
+  pinMode(pin::I2C_SCL, INPUT_PULLUP);
+  pinMode(pin::I2C_SDA, INPUT_PULLUP);
+
   Wire.begin(); // I2C setup
 
   pinMode(pin::LED, HIGH);
