@@ -76,6 +76,12 @@ private:
     {
         receivingSysEx = false;
     }
+    */
+
+    uint8_t margeBytes(const uint8_t msb, const uint8_t lsb) const
+    {
+        return (msb << 4) | (lsb & 0x0F);
+    }
 
     static constexpr uint8_t MAX_SYSEX_LENGTH = 32;
     bool receivingSysEx = false;
