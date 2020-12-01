@@ -71,12 +71,6 @@ private:
         sysExData[sysExIndex] = d;
         sysExIndex++;
     }
-    /*
-    void clearSysExFlag()
-    {
-        receivingSysEx = false;
-    }
-    */
 
     uint8_t margeBytes(const uint8_t msb, const uint8_t lsb) const
     {
