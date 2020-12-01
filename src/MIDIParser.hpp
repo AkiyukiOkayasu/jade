@@ -71,7 +71,7 @@ private:
         sysExData[sysExIndex] = d;
         sysExIndex++;
     }
-
+    /*
     void clearSysExFlag()
     {
         receivingSysEx = false;
