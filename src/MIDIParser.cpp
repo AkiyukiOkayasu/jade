@@ -119,20 +119,26 @@ void UsbMidiParser::ccCallback(const uint_fast8_t controlNumber, const uint_fast
 
 void UsbMidiParser::sysExCallback(const uint_fast8_t sysEx[], const uint32_t size)
 {
-#if 0
+#if 1
     for (uint_fast8_t i = 0; i < size; ++i)
     {
         SerialUSB.print(sysEx[i]);
         SerialUSB.print(",");
     }
+    SerialUSB.println("");
 #endif
     const uint8_t addr = margeBytes(sysEx[0], sysEx[1]);
-
     Wire.beginTransmission(addr);
-    for (uint_fast8_t i = 1; i < size / 2; ++i)
+    SerialUSB.print(addr);
+    SerialUSB.print(",");
+    for (uint_fast8_t i = 2; i < size; i += 2)
     {
-        Wire.write(margeBytes(sysEx[i * 2], sysEx[i * 2 + 1]));
+        uint8_t b = margeBytes(sysEx[i], sysEx[i + 1]);
+        Wire.write(b);
+        SerialUSB.print(b);
+        SerialUSB.print(",");
     }
     Wire.endTransmission();
+    SerialUSB.println("");
     delay(1);
 }
