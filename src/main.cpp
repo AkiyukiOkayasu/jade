@@ -56,5 +56,5 @@ void loop()
     rx = MidiUSB.read();
     midiParser.parse(rx);
   } while (rx.header != 0);
-  delay(1);
+  delayMicroseconds(50);
 }
