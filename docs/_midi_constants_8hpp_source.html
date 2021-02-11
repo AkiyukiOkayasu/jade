@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>toki: src/MIDI/MidiConstants.hpp Source File</title>
+<title>jade: src/MIDI/MidiConstants.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">toki
+   <div id="projectname">jade
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
   </td>
@@ -97,28 +97,28 @@ $(document).ready(function(){initNavTree('_midi_constants_8hpp_source.html','');
 </div><!--header-->
 <div class="contents">
 <a href="_midi_constants_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespace_c_i_n.html">   14</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_c_i_n.html">CIN</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;constexpr uint8_t SYSCOMMON_2BYTES = 0x02; <span class="comment">// 2Byte</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;constexpr uint8_t SYSCOMMON_3BYTES = 0x03;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;constexpr uint8_t SYSEX_START_OR_CONTINUE = 0x04;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;constexpr uint8_t SYSEX_END_1BYTE = 0x05;  <span class="comment">// 1Byte</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;constexpr uint8_t SYSEX_END_2BYTES = 0x06; <span class="comment">// 2Byte</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;constexpr uint8_t SYSEX_END_3BYTES = 0x07;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;constexpr uint8_t NOTE_OFF = 0x08;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;constexpr uint8_t NOTE_ON = 0x09;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;constexpr uint8_t POLYPHONIC_KEY_PRESSURE = 0x0A;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;constexpr uint8_t CONTROL_CHANGE = 0x0B;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;constexpr uint8_t PROGRAM_CHANGE = 0x0C;   <span class="comment">// 2Byte</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;constexpr uint8_t CHANNEL_PRESSURE = 0x0D; <span class="comment">// 2Byte</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;constexpr uint8_t PITCH_BEND = 0x0E;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;constexpr uint8_t SYS_REALTIME = 0x0F; <span class="comment">// 1Byte</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">// namespace CIN</span></div>
-<div class="ttc" id="anamespace_c_i_n_html"><div class="ttname"><a href="namespace_c_i_n.html">CIN</a></div><div class="ttdoc">USB-MIDI CIN (Code Index Number) https://pcm1723.hateblo.jp/entry/20150109/1420819489.</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:15</div></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespace_c_i_n.html">   15</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_c_i_n.html">CIN</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;constexpr uint8_t SYSCOMMON_2BYTES = 0x02; <span class="comment">// 2Byte</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;constexpr uint8_t SYSCOMMON_3BYTES = 0x03;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;constexpr uint8_t SYSEX_START_OR_CONTINUE = 0x04;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;constexpr uint8_t SYSEX_END_1BYTE = 0x05;  <span class="comment">// 1Byte</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;constexpr uint8_t SYSEX_END_2BYTES = 0x06; <span class="comment">// 2Byte</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;constexpr uint8_t SYSEX_END_3BYTES = 0x07;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;constexpr uint8_t NOTE_OFF = 0x08;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;constexpr uint8_t NOTE_ON = 0x09;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;constexpr uint8_t POLYPHONIC_KEY_PRESSURE = 0x0A;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;constexpr uint8_t CONTROL_CHANGE = 0x0B;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;constexpr uint8_t PROGRAM_CHANGE = 0x0C;   <span class="comment">// 2Byte</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;constexpr uint8_t CHANNEL_PRESSURE = 0x0D; <span class="comment">// 2Byte</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;constexpr uint8_t PITCH_BEND = 0x0E;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;constexpr uint8_t SYS_REALTIME = 0x0F; <span class="comment">// 1Byte</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;} <span class="comment">// namespace CIN</span></div>
+<div class="ttc" id="anamespace_c_i_n_html"><div class="ttname"><a href="namespace_c_i_n.html">CIN</a></div><div class="ttdoc">USB-MIDI CIN (Code Index Number) https://pcm1723.hateblo.jp/entry/20150109/1420819489.</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

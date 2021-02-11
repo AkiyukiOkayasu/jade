@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "toki", "index.html", [
+  [ "jade", "index.html", [
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
