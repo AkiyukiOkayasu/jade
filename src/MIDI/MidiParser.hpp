@@ -12,6 +12,7 @@
 #include <array>
 #include <functional>
 
+/// USB-MIDI event parser
 class UsbMidiParser
 {
 public:
