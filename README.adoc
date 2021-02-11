@@ -1,0 +1,13 @@
+= jade
+
+USB-MIDI to monome ii converter +
+
+== Dependencies
+* Platform IO
+
+== Document
+https://akiyukiokayasu.github.io/jade/[document]
+
+== LICENSE
+MIT +
+link:LICENSE[LICENSE]
