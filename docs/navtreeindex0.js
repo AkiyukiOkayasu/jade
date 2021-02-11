@@ -1,6 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"":[0,0,2],
 "_midi_constants_8hpp.html":[2,0,0,0,0],
 "_midi_constants_8hpp.html#a178fb6dc4a80e7f0d3c0db9124406cab":[2,0,0,0,0,9],
 "_midi_constants_8hpp.html#a205a26c97c952d1bdf1606e21e27efd6":[2,0,0,0,0,5],
@@ -72,11 +71,12 @@ var NAVTREEINDEX0 =
 "namespaces.html":[0,0],
 "pages.html":[],
 "pin_8hpp.html":[2,0,0,3],
-"pin_8hpp.html#a277975f886b26b8622e5ffd5d3d2adc8":[2,0,0,3,1],
 "pin_8hpp.html#a277975f886b26b8622e5ffd5d3d2adc8":[0,0,2,1],
+"pin_8hpp.html#a277975f886b26b8622e5ffd5d3d2adc8":[2,0,0,3,1],
 "pin_8hpp.html#a571ec56b579b758c32a0cf4157a1e0e9":[0,0,2,0],
 "pin_8hpp.html#a571ec56b579b758c32a0cf4157a1e0e9":[2,0,0,3,0],
 "pin_8hpp.html#ad2332f9ab6eeb0aeecddd050e6534ef1":[2,0,0,3,2],
 "pin_8hpp.html#ad2332f9ab6eeb0aeecddd050e6534ef1":[0,0,2,2],
-"pin_8hpp_source.html":[2,0,0,3]
+"pin_8hpp_source.html":[2,0,0,3],
+"":[0,0,2]
 };
