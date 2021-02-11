@@ -121,6 +121,9 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespace_c_i_n"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_i_n.html">CIN</a></td></tr>
 <tr class="memdesc:namespace_c_i_n"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB-MIDI <a class="el" href="namespace_c_i_n.html" title="USB-MIDI CIN (Code Index Number) https://pcm1723.hateblo.jp/entry/20150109/1420819489.">CIN</a> (Code Index Number) <a href="https://pcm1723.hateblo.jp/entry/20150109/1420819489">https://pcm1723.hateblo.jp/entry/20150109/1420819489</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_sys_ex"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_sys_ex.html">SysEx</a></td></tr>
+<tr class="memdesc:namespace_sys_ex"><td class="mdescLeft">&#160;</td><td class="mdescRight">MIDI <a class="el" href="namespace_sys_ex.html" title="MIDI SysEx 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7.">SysEx</a> 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -166,6 +169,28 @@ constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>CIN::PIT
 <tr class="memitem:ae1924f325d574951655f6cbaefd2ba1b"><td class="memItemLeft" align="right" valign="top"><a id="ae1924f325d574951655f6cbaefd2ba1b"></a>
 constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>CIN::SYS_REALTIME</b> = 0x0F</td></tr>
 <tr class="separator:ae1924f325d574951655f6cbaefd2ba1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2335916458251039d36e7e5c9e56847f"><td class="memItemLeft" align="right" valign="top"><a id="a2335916458251039d36e7e5c9e56847f"></a>
+constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>SysEx::BEGIN</b> = 0xF0</td></tr>
+<tr class="separator:a2335916458251039d36e7e5c9e56847f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5f15a89040e011994356d89063eefc6"><td class="memItemLeft" align="right" valign="top"><a id="aa5f15a89040e011994356d89063eefc6"></a>
+constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>SysEx::END</b> = 0xF7</td></tr>
+<tr class="separator:aa5f15a89040e011994356d89063eefc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a71abb82df612df59af7716e806fe52"><td class="memItemLeft" align="right" valign="top"><a id="a1a71abb82df612df59af7716e806fe52"></a>
+constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52">SysEx::ManufacturerID::NON_COMMERCIAL</a> = 0x7D</td></tr>
+<tr class="memdesc:a1a71abb82df612df59af7716e806fe52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal <a class="el" href="namespace_sys_ex.html" title="MIDI SysEx 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7.">SysEx</a> 非営利 <br /></td></tr>
+<tr class="separator:a1a71abb82df612df59af7716e806fe52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5018affcd5879d24dbc4cfe092e25fb3"><td class="memItemLeft" align="right" valign="top"><a id="a5018affcd5879d24dbc4cfe092e25fb3"></a>
+constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_constants_8hpp.html#a5018affcd5879d24dbc4cfe092e25fb3">SysEx::ManufacturerID::NON_REALTIME</a> = 0x7E</td></tr>
+<tr class="memdesc:a5018affcd5879d24dbc4cfe092e25fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal <a class="el" href="namespace_sys_ex.html" title="MIDI SysEx 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7.">SysEx</a> 非リアルタイム <br /></td></tr>
+<tr class="separator:a5018affcd5879d24dbc4cfe092e25fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087c47c9475696e16fd6e34aa619b52b"><td class="memItemLeft" align="right" valign="top"><a id="a087c47c9475696e16fd6e34aa619b52b"></a>
+constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_constants_8hpp.html#a087c47c9475696e16fd6e34aa619b52b">SysEx::ManufacturerID::REALTIME</a> = 0x7F</td></tr>
+<tr class="memdesc:a087c47c9475696e16fd6e34aa619b52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal <a class="el" href="namespace_sys_ex.html" title="MIDI SysEx 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7.">SysEx</a> リアルタイム <br /></td></tr>
+<tr class="separator:a087c47c9475696e16fd6e34aa619b52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7fcbcbf49e8d2d54e40f30e7b21aa69"><td class="memItemLeft" align="right" valign="top"><a id="ac7fcbcbf49e8d2d54e40f30e7b21aa69"></a>
+constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_midi_constants_8hpp.html#ac7fcbcbf49e8d2d54e40f30e7b21aa69">SysEx::DeviceID::ALL</a> = 0x7F</td></tr>
+<tr class="memdesc:ac7fcbcbf49e8d2d54e40f30e7b21aa69"><td class="mdescLeft">&#160;</td><td class="mdescRight">全端末 <br /></td></tr>
+<tr class="separator:ac7fcbcbf49e8d2d54e40f30e7b21aa69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Constants about MIDI. </p>

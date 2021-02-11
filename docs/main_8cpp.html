@@ -104,7 +104,6 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_midi_parser_8hpp_source.html">MIDI/MIDIParser.hpp</a>&quot;</code><br />
 <code>#include &quot;MIDIUSB.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="ii_8hpp_source.html">ii.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pin_8hpp_source.html">pin.hpp</a>&quot;</code><br />
 <code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &lt;Wire.h&gt;</code><br />
@@ -116,9 +115,12 @@ Include dependency graph for main.cpp:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a463d8104f5d30afafa789fa831da5c5d"><td class="memItemLeft" align="right" valign="top"><a id="a463d8104f5d30afafa789fa831da5c5d"></a>
-constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>margeBytes</b> (const uint8_t msb, const uint8_t lsb)</td></tr>
+<tr class="memitem:a463d8104f5d30afafa789fa831da5c5d"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a463d8104f5d30afafa789fa831da5c5d">margeBytes</a> (const uint8_t msb, const uint8_t lsb)</td></tr>
+<tr class="memdesc:a463d8104f5d30afafa789fa831da5c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">[0, 127]の範囲の2つのuint8を[0, 255]とする.  <a href="main_8cpp.html#a463d8104f5d30afafa789fa831da5c5d">More...</a><br /></td></tr>
 <tr class="separator:a463d8104f5d30afafa789fa831da5c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ccd21460649ec3457dc0d4a60e56b1d"><td class="memItemLeft" align="right" valign="top"><a id="a8ccd21460649ec3457dc0d4a60e56b1d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sysExCallback</b> (const uint8_t sysEx[], const uint8_t size)</td></tr>
+<tr class="separator:a8ccd21460649ec3457dc0d4a60e56b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top"><a id="a4fc01d736fe50cf5b977f755b675f11d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setup</b> ()</td></tr>
 <tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,7 +138,55 @@ Variables</h2></td></tr>
 <div class="textblock"><p>jade main </p>
 <dl class="section author"><dt>Author</dt><dd>Akiyuki Okayasu (<a href="#" onclick="location.href='mai'+'lto:'+'aki'+'yu'+'ki.'+'ok'+'aya'+'su'+'@gm'+'ai'+'l.c'+'om'; return false;">akiyu<span style="display: none;">.nosp@m.</span>ki.o<span style="display: none;">.nosp@m.</span>kayas<span style="display: none;">.nosp@m.</span>u@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a>) </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 - Akiyuki Okayasu </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a463d8104f5d30afafa789fa831da5c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a463d8104f5d30afafa789fa831da5c5d">&#9670;&nbsp;</a></span>margeBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t margeBytes </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>msb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>lsb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>[0, 127]の範囲の2つのuint8を[0, 255]とする. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msb</td><td>[0, 127] </td></tr>
+    <tr><td class="paramname">lsb</td><td>[0, 127] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>constexpr uint8_t [0, 255] </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>SysExの仕組み上128以上の数は送信できないのでI2Cの1byteを2byteに分割して送信している&#x2410; </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -18,12 +18,9 @@ digraph "src/main.cpp"
   Node7 [label="functional",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="ii.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ii_8hpp.html",tooltip="monome ii constants"];
-  Node8 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="pin.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pin_8hpp.html",tooltip="Constants about Seeeduino XAIO GPIO."];
   Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 [label="pin.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pin_8hpp.html",tooltip="Constants about Seeeduino XAIO GPIO."];
+  Node9 [label="Arduino.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node10 [label="Arduino.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node11 [label="Wire.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node10 [label="Wire.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

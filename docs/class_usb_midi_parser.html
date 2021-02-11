@@ -114,108 +114,89 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>parse</b> (midiEventP
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:af8279a57c68601c13cacbb2695fb62ba"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usb_midi_parser.html#af8279a57c68601c13cacbb2695fb62ba">onNoteOn</a></td></tr>
-<tr class="memdesc:af8279a57c68601c13cacbb2695fb62ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note on callback.  <a href="class_usb_midi_parser.html#af8279a57c68601c13cacbb2695fb62ba">More...</a><br /></td></tr>
-<tr class="separator:af8279a57c68601c13cacbb2695fb62ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38de2b85de84f158c0cbcf1225045254"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usb_midi_parser.html#a38de2b85de84f158c0cbcf1225045254">onNoteOff</a></td></tr>
-<tr class="memdesc:a38de2b85de84f158c0cbcf1225045254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note off callback.  <a href="class_usb_midi_parser.html#a38de2b85de84f158c0cbcf1225045254">More...</a><br /></td></tr>
-<tr class="separator:a38de2b85de84f158c0cbcf1225045254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d591c17f91d86731233ed762fff1532"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usb_midi_parser.html#a1d591c17f91d86731233ed762fff1532">onControlChange</a></td></tr>
-<tr class="memdesc:a1d591c17f91d86731233ed762fff1532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control change callback.  <a href="class_usb_midi_parser.html#a1d591c17f91d86731233ed762fff1532">More...</a><br /></td></tr>
-<tr class="separator:a1d591c17f91d86731233ed762fff1532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85cf46a845e977381b1ad4d9b701b3fd"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const uint_fast8_t[], const uint_fast8_t)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usb_midi_parser.html#a85cf46a845e977381b1ad4d9b701b3fd">onSysEx</a></td></tr>
-<tr class="memdesc:a85cf46a845e977381b1ad4d9b701b3fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">SysEx callback.  <a href="class_usb_midi_parser.html#a85cf46a845e977381b1ad4d9b701b3fd">More...</a><br /></td></tr>
-<tr class="separator:a85cf46a845e977381b1ad4d9b701b3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad22553fff56f0f1c892e3a43c4c61000"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(<a class="el" href="struct_m_i_d_i_1_1_note.html">MIDI::Note</a>)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usb_midi_parser.html#ad22553fff56f0f1c892e3a43c4c61000">onNoteOn</a></td></tr>
+<tr class="memdesc:ad22553fff56f0f1c892e3a43c4c61000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note on callback.  <a href="class_usb_midi_parser.html#ad22553fff56f0f1c892e3a43c4c61000">More...</a><br /></td></tr>
+<tr class="separator:ad22553fff56f0f1c892e3a43c4c61000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b860bc3dfbb90ffca4387f1fbb5e236"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(<a class="el" href="struct_m_i_d_i_1_1_note.html">MIDI::Note</a>)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usb_midi_parser.html#a2b860bc3dfbb90ffca4387f1fbb5e236">onNoteOff</a></td></tr>
+<tr class="memdesc:a2b860bc3dfbb90ffca4387f1fbb5e236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note off callback.  <a href="class_usb_midi_parser.html#a2b860bc3dfbb90ffca4387f1fbb5e236">More...</a><br /></td></tr>
+<tr class="separator:a2b860bc3dfbb90ffca4387f1fbb5e236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d08dfd9f9efab3046c234c3107c93a"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(<a class="el" href="struct_m_i_d_i_1_1_control_change.html">MIDI::ControlChange</a>)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usb_midi_parser.html#ad4d08dfd9f9efab3046c234c3107c93a">onControlChange</a></td></tr>
+<tr class="memdesc:ad4d08dfd9f9efab3046c234c3107c93a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control change callback.  <a href="class_usb_midi_parser.html#ad4d08dfd9f9efab3046c234c3107c93a">More...</a><br /></td></tr>
+<tr class="separator:ad4d08dfd9f9efab3046c234c3107c93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf84bebb8077a8da3775fbc32a37b8f7"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const uint8_t[], const uint8_t)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usb_midi_parser.html#aaf84bebb8077a8da3775fbc32a37b8f7">onSysEx</a></td></tr>
+<tr class="memdesc:aaf84bebb8077a8da3775fbc32a37b8f7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespace_sys_ex.html" title="MIDI SysEx 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7.">SysEx</a> callback.  <a href="class_usb_midi_parser.html#aaf84bebb8077a8da3775fbc32a37b8f7">More...</a><br /></td></tr>
+<tr class="separator:aaf84bebb8077a8da3775fbc32a37b8f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>USB-MIDI event parser. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1d591c17f91d86731233ed762fff1532"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d591c17f91d86731233ed762fff1532">&#9670;&nbsp;</a></span>onControlChange</h2>
+<a id="ad4d08dfd9f9efab3046c234c3107c93a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d08dfd9f9efab3046c234c3107c93a">&#9670;&nbsp;</a></span>onControlChange</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;void (const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)&gt; UsbMidiParser::onControlChange</td>
+          <td class="memname">std::function&lt;void (<a class="el" href="struct_m_i_d_i_1_1_control_change.html">MIDI::ControlChange</a>)&gt; UsbMidiParser::onControlChange</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Control change callback. </p>
-<p>You can assign a lambda to this callback object to have it called when the MIDI control change is comed. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">controlNumber</td><td>[0, 127] </td></tr>
-    <tr><td class="paramname">value</td><td>[0, 127] </td></tr>
-    <tr><td class="paramname">midiChannel</td><td>[0, 15] </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>You can assign a lambda to this callback object to have it called when the MIDI control change is comed. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_m_i_d_i_1_1_control_change.html" title="MIDI Control change.">MIDI::ControlChange</a> <br  />
+ </dd></dl>
 
 </div>
 </div>
-<a id="a38de2b85de84f158c0cbcf1225045254"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38de2b85de84f158c0cbcf1225045254">&#9670;&nbsp;</a></span>onNoteOff</h2>
+<a id="a2b860bc3dfbb90ffca4387f1fbb5e236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b860bc3dfbb90ffca4387f1fbb5e236">&#9670;&nbsp;</a></span>onNoteOff</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;void (const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)&gt; UsbMidiParser::onNoteOff</td>
+          <td class="memname">std::function&lt;void (<a class="el" href="struct_m_i_d_i_1_1_note.html">MIDI::Note</a>)&gt; UsbMidiParser::onNoteOff</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Note off callback. </p>
-<p>You can assign a lambda to this callback object to have it called when the MIDI note off is comed. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">noteNumber</td><td>[0, 127] </td></tr>
-    <tr><td class="paramname">velocity</td><td>[0, 127] </td></tr>
-    <tr><td class="paramname">midiChannel</td><td>[0, 15] </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>You can assign a lambda to this callback object to have it called when the MIDI note off is comed. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_m_i_d_i_1_1_note.html" title="MIDI note.">MIDI::Note</a> </dd></dl>
 
 </div>
 </div>
-<a id="af8279a57c68601c13cacbb2695fb62ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8279a57c68601c13cacbb2695fb62ba">&#9670;&nbsp;</a></span>onNoteOn</h2>
+<a id="ad22553fff56f0f1c892e3a43c4c61000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad22553fff56f0f1c892e3a43c4c61000">&#9670;&nbsp;</a></span>onNoteOn</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;void (const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)&gt; UsbMidiParser::onNoteOn</td>
+          <td class="memname">std::function&lt;void (<a class="el" href="struct_m_i_d_i_1_1_note.html">MIDI::Note</a>)&gt; UsbMidiParser::onNoteOn</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Note on callback. </p>
-<p>You can assign a lambda to this callback object to have it called when the MIDI note on is comed. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">noteNumber</td><td>[0, 127] </td></tr>
-    <tr><td class="paramname">velocity</td><td>[0, 127] </td></tr>
-    <tr><td class="paramname">midiChannel</td><td>[0, 15] </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>You can assign a lambda to this callback object to have it called when the MIDI note on is comed. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_m_i_d_i_1_1_note.html" title="MIDI note.">MIDI::Note</a> <br  />
+ </dd></dl>
 
 </div>
 </div>
-<a id="a85cf46a845e977381b1ad4d9b701b3fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85cf46a845e977381b1ad4d9b701b3fd">&#9670;&nbsp;</a></span>onSysEx</h2>
+<a id="aaf84bebb8077a8da3775fbc32a37b8f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf84bebb8077a8da3775fbc32a37b8f7">&#9670;&nbsp;</a></span>onSysEx</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;void (const uint_fast8_t[], const uint_fast8_t)&gt; UsbMidiParser::onSysEx</td>
+          <td class="memname">std::function&lt;void (const uint8_t[], const uint8_t)&gt; UsbMidiParser::onSysEx</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>SysEx callback. </p>
-<p>You can assign a lambda to this callback object to have it called when the MIDI SysEx is comed. </p><dl class="params"><dt>Parameters</dt><dd>
+<p><a class="el" href="namespace_sys_ex.html" title="MIDI SysEx 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7.">SysEx</a> callback. </p>
+<p>You can assign a lambda to this callback object to have it called when the MIDI <a class="el" href="namespace_sys_ex.html" title="MIDI SysEx 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7.">SysEx</a> is comed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">SysExByteArray</td><td></td></tr>
     <tr><td class="paramname">SysExByteArraySize</td><td></td></tr>

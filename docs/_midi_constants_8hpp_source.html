@@ -118,7 +118,31 @@ $(document).ready(function(){initNavTree('_midi_constants_8hpp_source.html','');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;constexpr uint8_t PITCH_BEND = 0x0E;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;constexpr uint8_t SYS_REALTIME = 0x0F; <span class="comment">// 1Byte</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;} <span class="comment">// namespace CIN</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespace_sys_ex.html">   36</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_sys_ex.html">SysEx</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;constexpr uint8_t BEGIN = 0xF0;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;constexpr uint8_t END = 0xF7;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span>ManufacturerID</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52">   43</a></span>&#160;    constexpr uint8_t <a class="code" href="_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52">NON_COMMERCIAL</a> = 0x7D; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="_midi_constants_8hpp.html#a5018affcd5879d24dbc4cfe092e25fb3">   44</a></span>&#160;    constexpr uint8_t <a class="code" href="_midi_constants_8hpp.html#a5018affcd5879d24dbc4cfe092e25fb3">NON_REALTIME</a> = 0x7E;   </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="_midi_constants_8hpp.html#a087c47c9475696e16fd6e34aa619b52b">   45</a></span>&#160;    constexpr uint8_t <a class="code" href="_midi_constants_8hpp.html#a087c47c9475696e16fd6e34aa619b52b">REALTIME</a> = 0x7F;       </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace ManufacturerID</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">namespace </span>DeviceID</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="_midi_constants_8hpp.html#ac7fcbcbf49e8d2d54e40f30e7b21aa69">   50</a></span>&#160;    constexpr uint8_t <a class="code" href="_midi_constants_8hpp.html#ac7fcbcbf49e8d2d54e40f30e7b21aa69">ALL</a> = 0x7F; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// TODO jadeのDeviceIDを追加する?</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace DeviceID</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace SysEx</span></div>
+<div class="ttc" id="a_midi_constants_8hpp_html_a087c47c9475696e16fd6e34aa619b52b"><div class="ttname"><a href="_midi_constants_8hpp.html#a087c47c9475696e16fd6e34aa619b52b">SysEx::ManufacturerID::REALTIME</a></div><div class="ttdeci">constexpr uint8_t REALTIME</div><div class="ttdoc">Universal SysEx リアルタイム</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:45</div></div>
+<div class="ttc" id="a_midi_constants_8hpp_html_a1a71abb82df612df59af7716e806fe52"><div class="ttname"><a href="_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52">SysEx::ManufacturerID::NON_COMMERCIAL</a></div><div class="ttdeci">constexpr uint8_t NON_COMMERCIAL</div><div class="ttdoc">Universal SysEx 非営利</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:43</div></div>
+<div class="ttc" id="a_midi_constants_8hpp_html_a5018affcd5879d24dbc4cfe092e25fb3"><div class="ttname"><a href="_midi_constants_8hpp.html#a5018affcd5879d24dbc4cfe092e25fb3">SysEx::ManufacturerID::NON_REALTIME</a></div><div class="ttdeci">constexpr uint8_t NON_REALTIME</div><div class="ttdoc">Universal SysEx 非リアルタイム</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:44</div></div>
+<div class="ttc" id="a_midi_constants_8hpp_html_ac7fcbcbf49e8d2d54e40f30e7b21aa69"><div class="ttname"><a href="_midi_constants_8hpp.html#ac7fcbcbf49e8d2d54e40f30e7b21aa69">SysEx::DeviceID::ALL</a></div><div class="ttdeci">constexpr uint8_t ALL</div><div class="ttdoc">全端末</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:50</div></div>
 <div class="ttc" id="anamespace_c_i_n_html"><div class="ttname"><a href="namespace_c_i_n.html">CIN</a></div><div class="ttdoc">USB-MIDI CIN (Code Index Number) https://pcm1723.hateblo.jp/entry/20150109/1420819489.</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:16</div></div>
+<div class="ttc" id="anamespace_sys_ex_html"><div class="ttname"><a href="namespace_sys_ex.html">SysEx</a></div><div class="ttdoc">MIDI SysEx 0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7.</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

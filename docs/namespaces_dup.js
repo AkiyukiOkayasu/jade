@@ -17,9 +17,25 @@ var namespaces_dup =
       [ "SYSEX_START_OR_CONTINUE", "namespace_c_i_n.html#a850b1ba5317c2ab3f38a99294b793016", null ]
     ] ],
     [ "ii", "namespaceii.html", null ],
+    [ "MIDI", null, [
+      [ "Note", "struct_m_i_d_i_1_1_note.html", "struct_m_i_d_i_1_1_note" ],
+      [ "ControlChange", "struct_m_i_d_i_1_1_control_change.html", "struct_m_i_d_i_1_1_control_change" ]
+    ] ],
     [ "pin", null, [
-      [ "I2C_SCL", "pin_8hpp.html#a571ec56b579b758c32a0cf4157a1e0e9", null ],
-      [ "I2C_SDA", "pin_8hpp.html#a277975f886b26b8622e5ffd5d3d2adc8", null ],
-      [ "LED", "pin_8hpp.html#ad2332f9ab6eeb0aeecddd050e6534ef1", null ]
+      [ "I2C_SCL", "pin_8hpp.html#ae47339b8757049761604b6d92eaf8179", null ],
+      [ "I2C_SDA", "pin_8hpp.html#a8b410b2aae5d93f3b2a8b8a136e4e379", null ],
+      [ "LED", "pin_8hpp.html#a09c50164a10660c54ed110c8f9d8ea9c", null ]
+    ] ],
+    [ "SysEx", "namespace_sys_ex.html", [
+      [ "DeviceID", null, [
+        [ "ALL", "_midi_constants_8hpp.html#ac7fcbcbf49e8d2d54e40f30e7b21aa69", null ]
+      ] ],
+      [ "ManufacturerID", null, [
+        [ "NON_COMMERCIAL", "_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52", null ],
+        [ "NON_REALTIME", "_midi_constants_8hpp.html#a5018affcd5879d24dbc4cfe092e25fb3", null ],
+        [ "REALTIME", "_midi_constants_8hpp.html#a087c47c9475696e16fd6e34aa619b52b", null ]
+      ] ],
+      [ "BEGIN", "namespace_sys_ex.html#a2335916458251039d36e7e5c9e56847f", null ],
+      [ "END", "namespace_sys_ex.html#aa5f15a89040e011994356d89063eefc6", null ]
     ] ]
 ];

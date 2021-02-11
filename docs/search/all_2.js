@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['justfriends_3',['JustFriends',['../ii_8hpp.html#ae0349e36734912c6a3ceda8ba9f29e2a',1,'ii::Address']]]
+  ['ii_5',['ii',['../namespaceii.html',1,'']]],
+  ['ii_2ehpp_6',['ii.hpp',['../ii_8hpp.html',1,'']]]
 ];

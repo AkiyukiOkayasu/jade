@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usbmidiparser_13',['UsbMidiParser',['../class_usb_midi_parser.html',1,'']]]
+  ['controlchange_26',['ControlChange',['../struct_m_i_d_i_1_1_control_change.html',1,'MIDI']]]
 ];
