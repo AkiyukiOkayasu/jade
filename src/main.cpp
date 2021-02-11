@@ -13,25 +13,44 @@
 
 UsbMidiParser midiParser;
 
+/** 
+    [0, 127]の範囲の2つのuint8を[0, 255]とする.
+    @param msb [0, 127]
+    @param lsb [0, 127]
+    @return constexpr uint8_t [0, 255]
+    @note SysExの仕組み上128以上の数は送信できないのでI2Cの1byteを2byteに分割して送信している
+*/
 constexpr uint8_t margeBytes (const uint8_t msb, const uint8_t lsb)
 {
     return (msb << 4) | (lsb & 0x0F);
+}
+
+void sysExCallback (const uint8_t sysEx[], const uint8_t size)
+{
+    const uint8_t addr = margeBytes (sysEx[0], sysEx[1]);
+    Wire.beginTransmission (addr);
+
+    for (uint_fast8_t i = 2; i < size; i += 2)
+    {
+        Wire.write (margeBytes (sysEx[i], sysEx[i + 1]));
+    }
+    Wire.endTransmission();
 }
 
 void setup()
 {
     SerialUSB.begin (115200);
 
-    midiParser.onNoteOn = [&] (const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) {
+    midiParser.onNoteOn = [] (MIDI::Note note) {
         digitalWrite (pin::LED, LOW);
     };
 
-    midiParser.onNoteOff = [&] (const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch) {
+    midiParser.onNoteOff = [] (MIDI::Note note) {
         digitalWrite (pin::LED, HIGH);
     };
 
-    midiParser.onControlChange = [&] (const uint_fast8_t controlNumber, const uint_fast8_t value, const uint_fast8_t ch) {
-        if (value > 0)
+    midiParser.onControlChange = [] (MIDI::ControlChange cc) {
+        if (cc.value > 0)
         {
             digitalWrite (pin::LED, LOW);
         }
@@ -41,16 +60,7 @@ void setup()
         }
     };
 
-    midiParser.onSysEx = [&] (const uint_fast8_t sysEx[], const uint_fast8_t size) {
-        const uint8_t addr = margeBytes (sysEx[0], sysEx[1]);
-        Wire.beginTransmission (addr);
-
-        for (uint_fast8_t i = 2; i < size; i += 2)
-        {
-            Wire.write (margeBytes (sysEx[i], sysEx[i + 1]));
-        }
-        Wire.endTransmission();
-    };
+    midiParser.onSysEx = sysExCallback;
 
     // I2Cピンの内部プルアップ
     pinMode (pin::I2C_SCL, INPUT_PULLUP);
