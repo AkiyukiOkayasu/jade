@@ -14,7 +14,7 @@ void UsbMidiParser::parse (midiEventPacket_t p)
         case CIN::SYSCOMMON_3BYTES:
             break;
         case CIN::SYSEX_START_OR_CONTINUE:
-            if (p.byte1 == 0xF0)
+            if (p.byte1 == SysEx::BEGIN)
             {
                 receivingSysEx = true;
                 sysExIndex = 0;
@@ -29,19 +29,15 @@ void UsbMidiParser::parse (midiEventPacket_t p)
             }
             break;
         case CIN::SYSEX_END_1BYTE:
-            if (p.byte1 == 0xF7)
+            if (p.byte1 == SysEx::END)
             {
                 receivingSysEx = false;
                 if (onSysEx != nullptr)
                     onSysEx (sysExData.data(), sysExIndex);
             }
-            else
-            {
-                SerialUSB.println ("Invalid sysEx");
-            }
             break;
         case CIN::SYSEX_END_2BYTES:
-            if (p.byte2 == 0xF7)
+            if (p.byte2 == SysEx::END)
             {
                 pushSysEx (p.byte1);
                 receivingSysEx = false;
@@ -50,7 +46,7 @@ void UsbMidiParser::parse (midiEventPacket_t p)
             }
             break;
         case CIN::SYSEX_END_3BYTES:
-            if (p.byte3 == 0xF7)
+            if (p.byte3 == SysEx::END)
             {
                 pushSysEx (p.byte1);
                 pushSysEx (p.byte2);
@@ -61,27 +57,36 @@ void UsbMidiParser::parse (midiEventPacket_t p)
             break;
         case CIN::NOTE_OFF:
             if (onNoteOff != nullptr)
-                onNoteOff (p.byte2, p.byte3, channel);
+            {
+                MIDI::Note note = { p.byte2, p.byte3, channel };
+                onNoteOff (note);
+            }
 
             break;
         case CIN::NOTE_ON:
+        {
+            MIDI::Note note = { p.byte2, p.byte3, channel };
             if (p.byte3 == 0) // velocity 0 = noteOFF
             {
                 if (onNoteOff != nullptr)
-                    onNoteOff (p.byte2, p.byte3, channel);
+                    onNoteOff (note);
 
                 break;
             }
 
             if (onNoteOn != nullptr)
-                onNoteOn (p.byte2, p.byte3, channel);
+                onNoteOn (note);
 
             break;
+        }
         case CIN::POLYPHONIC_KEY_PRESSURE:
             break;
         case CIN::CONTROL_CHANGE:
             if (onControlChange != nullptr)
-                onControlChange (p.byte2, p.byte3, channel);
+            {
+                MIDI::ControlChange cc = { p.byte2, p.byte3, channel };
+                onControlChange (cc);
+            }
             break;
         case CIN::PROGRAM_CHANGE:
             break;

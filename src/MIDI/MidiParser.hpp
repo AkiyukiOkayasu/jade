@@ -4,6 +4,7 @@
     @author Akiyuki Okayasu (akiyuki.okayasu@gmail.com)
     @copyright Copyright (c) 2021 - Akiyuki Okayasu
 */
+
 #pragma once
 
 #include "MIDIConstants.hpp"
@@ -11,6 +12,25 @@
 
 #include <array>
 #include <functional>
+
+namespace MIDI
+{
+/// MIDI note
+struct Note
+{
+    uint8_t noteNumber; ///< [0, 127]
+    uint8_t velocity;   ///< [0, 127]
+    uint8_t channel;    ///< [0, 15]
+};
+
+/// MIDI Control change
+struct ControlChange
+{
+    uint8_t controlNumber; ///< [0, 119]
+    uint8_t value;         ///< [0, 127]
+    uint8_t channel;       ///< [0, 15]
+};
+} // namespace MIDI
 
 /// USB-MIDI event parser
 class UsbMidiParser
@@ -20,27 +40,21 @@ public:
 
     /** Note on callback.
         You can assign a lambda to this callback object to have it called when the MIDI note on is comed.
-        @param noteNumber [0, 127]
-        @param velocity [0, 127]
-        @param midiChannel [0, 15]
+        @see MIDI::Note        
     */
-    std::function<void (const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)> onNoteOn;
+    std::function<void (MIDI::Note)> onNoteOn;
 
     /** Note off callback.
         You can assign a lambda to this callback object to have it called when the MIDI note off is comed.
-        @param noteNumber [0, 127]
-        @param velocity [0, 127]
-        @param midiChannel [0, 15]
+        @see MIDI::Note
     */
-    std::function<void (const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)> onNoteOff;
+    std::function<void (MIDI::Note)> onNoteOff;
 
     /** Control change callback.
         You can assign a lambda to this callback object to have it called when the MIDI control change is comed.
-        @param controlNumber [0, 127]
-        @param value [0, 127]
-        @param midiChannel [0, 15]
+        @see MIDI::ControlChange        
     */
-    std::function<void (const uint_fast8_t, const uint_fast8_t, const uint_fast8_t)> onControlChange;
+    std::function<void (MIDI::ControlChange)> onControlChange;
 
     /** SysEx callback.
         You can assign a lambda to this callback object to have it called when the MIDI SysEx is comed.
@@ -91,5 +105,5 @@ private:
     static constexpr uint8_t MAX_SYSEX_LENGTH = 32;
     bool receivingSysEx = false;
     uint8_t sysExIndex = 0;
-    std::array<uint_fast8_t, MAX_SYSEX_LENGTH> sysExData;
+    std::array<uint8_t, MAX_SYSEX_LENGTH> sysExData;
 };
