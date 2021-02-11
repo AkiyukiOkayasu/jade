@@ -6,7 +6,6 @@
 
 #include "MIDI/MIDIParser.hpp"
 #include "MIDIUSB.h"
-#include "ii.hpp"
 #include "pin.hpp"
 
 #include <Arduino.h>
