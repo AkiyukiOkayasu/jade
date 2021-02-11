@@ -2,10 +2,10 @@
 
 void UsbMidiParser::parse (midiEventPacket_t p)
 {
-    const uint_fast8_t cin = codeIndexNumber (p.header);
-    const uint_fast8_t cn = cableNumber (p.header);
-    const uint_fast8_t statusByte = p.byte1;
-    const uint_fast8_t channel = midiCh (statusByte);
+    const uint8_t cin = codeIndexNumber (p.header);
+    const uint8_t cn = cableNumber (p.header);
+    const uint8_t statusByte = p.byte1;
+    const uint8_t channel = midiCh (statusByte);
 
     switch (cin)
     {

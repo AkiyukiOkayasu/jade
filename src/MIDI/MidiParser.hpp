@@ -47,10 +47,10 @@ public:
         @param SysExByteArray
         @param SysExByteArraySize
     */
-    std::function<void (const uint_fast8_t[], const uint_fast8_t)> onSysEx;
+    std::function<void (const uint8_t[], const uint8_t)> onSysEx;
 
 private:
-    constexpr uint_fast8_t midiCh (const uint_fast8_t statusByte) const
+    constexpr uint8_t midiCh (const uint8_t statusByte) const
     {
         // MIDI StatusByte下位4bit: MIDI channel
         return statusByte & 0x0F;
@@ -63,7 +63,7 @@ private:
         @return uint8_t USB-MIDI Cable Number
         @note USB-MIDIデバイスが複数使用されているときのインデックスとして利用する
     */
-    uint8_t cableNumber (const uint_fast8_t header) const
+    constexpr uint8_t cableNumber (const uint8_t header) const
     {
         // Header上位4bit: CableNumber
         return (header >> 4) & 0x0F;
@@ -76,13 +76,13 @@ private:
         @return uint8_t USB-MIDI 
         @note USB-MIDIメッセージの種別を表す
     */
-    uint8_t codeIndexNumber (const uint_fast8_t header) const
+    constexpr uint8_t codeIndexNumber (const uint8_t header) const
     {
         // Header下位4bit: CodeIndexNumber
         return header & 0x0F;
     }
 
-    void pushSysEx (uint_fast8_t d)
+    void pushSysEx (uint8_t d)
     {
         sysExData[sysExIndex] = d;
         sysExIndex++;
@@ -90,6 +90,6 @@ private:
 
     static constexpr uint8_t MAX_SYSEX_LENGTH = 32;
     bool receivingSysEx = false;
-    uint_fast8_t sysExIndex = 0;
+    uint8_t sysExIndex = 0;
     std::array<uint_fast8_t, MAX_SYSEX_LENGTH> sysExData;
 };
