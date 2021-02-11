@@ -1,4 +1,4 @@
-/** toki main
+/** jade main
     @file main.cpp
     @author Akiyuki Okayasu (akiyuki.okayasu@gmail.com)
     @copyright Copyright (c) 2021 - Akiyuki Okayasu

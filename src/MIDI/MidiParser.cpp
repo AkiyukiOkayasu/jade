@@ -95,39 +95,3 @@ void UsbMidiParser::parse (midiEventPacket_t p)
             break;
     }
 }
-
-/*
-void UsbMidiParser::noteOnCallback (const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch)
-{
-    digitalWrite (pin::LED, LOW);
-}
-
-void UsbMidiParser::noteOffCallback (const uint_fast8_t note, const uint_fast8_t velocity, const uint_fast8_t ch)
-{
-    digitalWrite (pin::LED, HIGH);
-}
-
-void UsbMidiParser::ccCallback (const uint_fast8_t controlNumber, const uint_fast8_t value, const uint_fast8_t ch)
-{
-    if (value > 0)
-    {
-        digitalWrite (pin::LED, LOW);
-    }
-    else
-    {
-        digitalWrite (pin::LED, HIGH);
-    }
-}
-
-void UsbMidiParser::sysExCallback (const uint_fast8_t sysEx[], const uint32_t size)
-{
-    const uint8_t addr = margeBytes (sysEx[0], sysEx[1]);
-    Wire.beginTransmission (addr);
-
-    for (uint_fast8_t i = 2; i < size; i += 2)
-    {
-        Wire.write (margeBytes (sysEx[i], sysEx[i + 1]));
-    }
-    Wire.endTransmission();
-}
-*/
