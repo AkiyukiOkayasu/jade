@@ -29,3 +29,25 @@ constexpr uint8_t CHANNEL_PRESSURE = 0x0D; // 2Byte
 constexpr uint8_t PITCH_BEND = 0x0E;
 constexpr uint8_t SYS_REALTIME = 0x0F; // 1Byte
 } // namespace CIN
+
+/** MIDI SysEx
+    0xF0, 0x7D, 0x7F, ~~~~~ , 0xF7
+*/
+namespace SysEx
+{
+constexpr uint8_t BEGIN = 0xF0;
+constexpr uint8_t END = 0xF7;
+
+namespace ManufacturerID
+{
+    constexpr uint8_t NON_COMMERCIAL = 0x7D; ///< Universal SysEx 非営利
+    constexpr uint8_t NON_REALTIME = 0x7E;   ///< Universal SysEx 非リアルタイム
+    constexpr uint8_t REALTIME = 0x7F;       ///< Universal SysEx リアルタイム
+} // namespace ManufacturerID
+
+namespace DeviceID
+{
+    constexpr uint8_t ALL = 0x7F; ///< 全端末
+    // TODO jadeのDeviceIDを追加する?
+} // namespace DeviceID
+} // namespace SysEx
