@@ -47,6 +47,11 @@ constexpr uint8_t margeBytes (const uint8_t msb, const uint8_t lsb)
     return (msb << 4) | (lsb & 0x0F);
 }
 
+/** 
+    SysExのコールバック関数
+    @param sysEx 受信したデータ配列
+    @param size データ配列の長さ
+*/
 void sysExCallback (const uint8_t sysEx[], const uint8_t size)
 {
     const uint8_t addr = margeBytes (sysEx[0], sysEx[1]);
@@ -134,6 +139,7 @@ void setup()
     zerotimer.enable (true);
     //=================
 
+    // MIDI
     midiParser.onNoteOn = [] (MIDI::Note note) {
         digitalWrite (pin::LED, LOW);
     };
