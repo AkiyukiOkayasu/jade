@@ -92,18 +92,23 @@ void setup()
     SerialUSB.begin (115200);
 
     // Timer
-    uint32_t compare3 = getCompare (5.0f); //Timer3の周波数(Hz)
-    uint32_t compare4 = getCompare (1.0f); //Timer4の周波数(Hz)
     zerotimer3.enable (false);
     zerotimer4.enable (false);
     zerotimer3.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler
-                          TC_COUNTER_SIZE_32BIT,       // bit width of timer/counter
+                          TC_COUNTER_SIZE_16BIT,       // bit width of timer/counter
                           TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
     );
-    zerotimer4.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler
-                          TC_COUNTER_SIZE_32BIT,       // bit width of timer/counter
+    /*
+    タイマーのカウンターサイズを32bitにしたかったが、32bitにするためにはタイマーペリフェラルが2つ必要だった。
+    SAMD21Gには3つのタイマーしかないので、2出力前提だと都合が悪いため、16bitとした。
+    TODO カウンターがオーバーフローしないようにプリスケーラーを設定する. TC_CLOCK_PRESCALER_DIV1024 か TC_CLOCK_PRESCALER_DIV256のどちらかだと思う
+    */
+    zerotimer4.configure (TC_CLOCK_PRESCALER_DIV1,     // プリスケーラー
+                          TC_COUNTER_SIZE_16BIT,       // bit width of timer/counter
                           TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
     );
+    uint32_t compare3 = getCompare (5.0f); //Timer3の周波数(Hz)
+    uint32_t compare4 = getCompare (1.0f); //Timer4の周波数(Hz)
     zerotimer3.setCompare (0, compare3);
     zerotimer4.setCompare (0, compare4);
     zerotimer3.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer3Callback);
