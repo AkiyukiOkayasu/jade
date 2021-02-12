@@ -69,6 +69,7 @@ void setup()
     Wire.begin(); // I2C setup
 
     pinMode (pin::LED, HIGH);
+    pinMode (pin::LED, OUTPUT);
     digitalWrite (pin::LED, HIGH);
     delay (1000);
 }
