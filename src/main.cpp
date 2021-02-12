@@ -11,28 +11,52 @@
 
 #include <Arduino.h>
 #include <Wire.h> // I2C
+#include <atomic>
+
+namespace timer
+{
+constexpr uint32_t CLK = 48000000;
+constexpr uint8_t PRESCALER = 1;
+} // namespace timer
 
 UsbMidiParser midiParser;
+Adafruit_ZeroTimer zerotimer3 = Adafruit_ZeroTimer (3); // Hardware timer 3
+Adafruit_ZeroTimer zerotimer4 = Adafruit_ZeroTimer (4); // Hardware timer 4
 
-// This example can have just about any frequency for the callback
-// automatically calculated!
-float freq = 5.0; // 1 KHz
-
-// timer tester
-Adafruit_ZeroTimer zerotimer = Adafruit_ZeroTimer (3);
-
+// Hardware timer peripheeral handlers
 void TC3_Handler()
 {
-    Adafruit_ZeroTimer::timerHandler (3);
+    Adafruit_ZeroTimer::timerHandler (3); //Clear timer flag
 }
 
-// the timer callback
-volatile bool togglepin = false;
-void TimerCallback0 (void)
+void TC4_Handler()
 {
-    //digitalWrite (LED_BUILTIN, togglepin);
-    digitalWrite (pin::D2, togglepin);
-    togglepin = ! togglepin;
+    Adafruit_ZeroTimer::timerHandler (4); //Clear timer flag
+}
+
+// Timer callback
+std::atomic<bool> logicD2 = { false };
+std::atomic<bool> logicD3 = { false };
+void timer3Callback (void)
+{
+    digitalWrite (pin::D2, logicD2);
+    logicD2 = ! logicD2;
+}
+
+void timer4Callback (void)
+{
+    digitalWrite (pin::D3, logicD3);
+    logicD3 = ! logicD3;
+}
+
+/** 
+    Calculate hardware timer compare value from frequency
+    @param freq Hz
+    @return constexpr uint32_t 
+*/
+constexpr uint32_t getCompare (float freq)
+{
+    return static_cast<uint32_t> ((timer::CLK / timer::PRESCALER) / freq);
 }
 
 /** 
@@ -58,9 +82,8 @@ void sysExCallback (const uint8_t sysEx[], const uint8_t size)
     Wire.beginTransmission (addr);
 
     for (uint_fast8_t i = 2; i < size; i += 2)
-    {
         Wire.write (margeBytes (sysEx[i], sysEx[i + 1]));
-    }
+
     Wire.endTransmission();
 }
 
@@ -68,76 +91,25 @@ void setup()
 {
     SerialUSB.begin (115200);
 
-    //=================
-    // Set up the flexible divider/compare
-    uint16_t divider = 1;
-    uint16_t compare = 0;
-    tc_clock_prescaler prescaler = TC_CLOCK_PRESCALER_DIV1;
-
-    if ((freq < 24000000) && (freq > 800))
-    {
-        divider = 1;
-        prescaler = TC_CLOCK_PRESCALER_DIV1;
-        compare = 48000000 / freq;
-    }
-    else if (freq > 400)
-    {
-        divider = 2;
-        prescaler = TC_CLOCK_PRESCALER_DIV2;
-        compare = (48000000 / 2) / freq;
-    }
-    else if (freq > 200)
-    {
-        divider = 4;
-        prescaler = TC_CLOCK_PRESCALER_DIV4;
-        compare = (48000000 / 4) / freq;
-    }
-    else if (freq > 100)
-    {
-        divider = 8;
-        prescaler = TC_CLOCK_PRESCALER_DIV8;
-        compare = (48000000 / 8) / freq;
-    }
-    else if (freq > 50)
-    {
-        divider = 16;
-        prescaler = TC_CLOCK_PRESCALER_DIV16;
-        compare = (48000000 / 16) / freq;
-    }
-    else if (freq > 12)
-    {
-        divider = 64;
-        prescaler = TC_CLOCK_PRESCALER_DIV64;
-        compare = (48000000 / 64) / freq;
-    }
-    else if (freq > 3)
-    {
-        divider = 256;
-        prescaler = TC_CLOCK_PRESCALER_DIV256;
-        compare = (48000000 / 256) / freq;
-    }
-    else if (freq >= 0.75)
-    {
-        divider = 1024;
-        prescaler = TC_CLOCK_PRESCALER_DIV1024;
-        compare = (48000000 / 1024) / freq;
-    }
-    else
-    {
-        while (1)
-            delay (10);
-    }
-
-    zerotimer.enable (false);
-    zerotimer.configure (prescaler,                   // prescaler
-                         TC_COUNTER_SIZE_16BIT,       // bit width of timer/counter
-                         TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
+    // Timer
+    uint32_t compare3 = getCompare (5.0f); //Timer3の周波数(Hz)
+    uint32_t compare4 = getCompare (1.0f); //Timer4の周波数(Hz)
+    zerotimer3.enable (false);
+    zerotimer4.enable (false);
+    zerotimer3.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler
+                          TC_COUNTER_SIZE_32BIT,       // bit width of timer/counter
+                          TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
     );
-
-    zerotimer.setCompare (0, compare);
-    zerotimer.setCallback (true, TC_CALLBACK_CC_CHANNEL0, TimerCallback0);
-    zerotimer.enable (true);
-    //=================
+    zerotimer4.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler
+                          TC_COUNTER_SIZE_32BIT,       // bit width of timer/counter
+                          TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
+    );
+    zerotimer3.setCompare (0, compare3);
+    zerotimer4.setCompare (0, compare4);
+    zerotimer3.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer3Callback);
+    zerotimer4.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer4Callback);
+    zerotimer3.enable (true);
+    zerotimer4.enable (true);
 
     // MIDI
     midiParser.onNoteOn = [] (MIDI::Note note) {
@@ -164,12 +136,13 @@ void setup()
     // I2Cピンの内部プルアップ
     pinMode (pin::I2C_SCL, INPUT_PULLUP);
     pinMode (pin::I2C_SDA, INPUT_PULLUP);
-
     Wire.begin(); // I2C setup
 
+    // GPIO
     pinMode (pin::D2, OUTPUT);
     digitalWrite (pin::D2, HIGH);
-
+    pinMode (pin::D3, OUTPUT);
+    digitalWrite (pin::D3, HIGH);
     pinMode (pin::LED, OUTPUT);
     digitalWrite (pin::LED, HIGH);
     delay (1000);
