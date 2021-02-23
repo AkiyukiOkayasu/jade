@@ -32,7 +32,7 @@ void TC3_Handler()
 std::atomic<bool> logicD2 = { false };
 void timer3Callback (void)
 {
-    digitalWrite (pin::LED, logicD2);
+    digitalWrite (pin::CLOCK_OUT, logicD2);
     logicD2 = ! logicD2;
 }
 
