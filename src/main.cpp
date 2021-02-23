@@ -21,7 +21,6 @@ constexpr uint8_t PRESCALER = 1;
 
 UsbMidiParser midiParser;
 Adafruit_ZeroTimer zerotimer3 = Adafruit_ZeroTimer (3); // Hardware timer 3
-Adafruit_ZeroTimer zerotimer4 = Adafruit_ZeroTimer (4); // Hardware timer 4
 
 // Hardware timer peripheeral handlers
 void TC3_Handler()
@@ -29,24 +28,12 @@ void TC3_Handler()
     Adafruit_ZeroTimer::timerHandler (3); //Clear timer flag
 }
 
-void TC4_Handler()
-{
-    Adafruit_ZeroTimer::timerHandler (4); //Clear timer flag
-}
-
 // Timer callback
 std::atomic<bool> logicD2 = { false };
-std::atomic<bool> logicD3 = { false };
 void timer3Callback (void)
 {
     digitalWrite (pin::D2, logicD2);
     logicD2 = ! logicD2;
-}
-
-void timer4Callback (void)
-{
-    digitalWrite (pin::D3, logicD3);
-    logicD3 = ! logicD3;
 }
 
 /** 
@@ -93,7 +80,7 @@ void setup()
 
     // Timer
     zerotimer3.enable (false);
-    zerotimer4.enable (false);
+    zerotimer3.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler 1
     zerotimer3.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler
                           TC_COUNTER_SIZE_16BIT,       // bit width of timer/counter
                           TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
@@ -103,18 +90,13 @@ void setup()
     SAMD21Gには3つのタイマーしかないので、2出力前提だと都合が悪いため、16bitとした。
     TODO カウンターがオーバーフローしないようにプリスケーラーを設定する. TC_CLOCK_PRESCALER_DIV1024 か TC_CLOCK_PRESCALER_DIV256のどちらかだと思う
     */
-    zerotimer4.configure (TC_CLOCK_PRESCALER_DIV1,     // プリスケーラー
                           TC_COUNTER_SIZE_16BIT,       // bit width of timer/counter
                           TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
     );
     uint32_t compare3 = getCompare (5.0f); //Timer3の周波数(Hz)
-    uint32_t compare4 = getCompare (1.0f); //Timer4の周波数(Hz)
     zerotimer3.setCompare (0, compare3);
-    zerotimer4.setCompare (0, compare4);
     zerotimer3.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer3Callback);
-    zerotimer4.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer4Callback);
     zerotimer3.enable (true);
-    zerotimer4.enable (true);
 
     // MIDI
     midiParser.onNoteOn = [] (MIDI::Note note) {
