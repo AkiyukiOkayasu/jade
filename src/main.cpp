@@ -15,8 +15,8 @@
 
 namespace timer
 {
-constexpr uint32_t CLK = 48000000;
-constexpr uint8_t PRESCALER = 1;
+constexpr uint32_t CLOCK = 48000000;
+constexpr uint32_t PRESCALER = 1;
 } // namespace timer
 
 UsbMidiParser midiParser;
@@ -32,18 +32,18 @@ void TC3_Handler()
 std::atomic<bool> logicD2 = { false };
 void timer3Callback (void)
 {
-    digitalWrite (pin::D2, logicD2);
+    digitalWrite (pin::LED, logicD2);
     logicD2 = ! logicD2;
 }
 
 /** 
     Calculate hardware timer compare value from frequency
-    @param freq Hz
+    @param frequency Hz
     @return constexpr uint32_t 
 */
-constexpr uint32_t getCompare (float freq)
+constexpr uint32_t getCompare (float frequency)
 {
-    return static_cast<uint32_t> ((timer::CLK / timer::PRESCALER) / freq);
+    return static_cast<uint32_t> ((timer::CLOCK / timer::PRESCALER) / frequency);
 }
 
 /** 
@@ -81,17 +81,8 @@ void setup()
     // Timer
     zerotimer3.enable (false);
     zerotimer3.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler 1
-    zerotimer3.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler
-                          TC_COUNTER_SIZE_16BIT,       // bit width of timer/counter
-                          TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
-    );
-    /*
-    タイマーのカウンターサイズを32bitにしたかったが、32bitにするためにはタイマーペリフェラルが2つ必要だった。
-    SAMD21Gには3つのタイマーしかないので、2出力前提だと都合が悪いため、16bitとした。
-    TODO カウンターがオーバーフローしないようにプリスケーラーを設定する. TC_CLOCK_PRESCALER_DIV1024 か TC_CLOCK_PRESCALER_DIV256のどちらかだと思う
-    */
-                          TC_COUNTER_SIZE_16BIT,       // bit width of timer/counter
-                          TC_WAVE_GENERATION_MATCH_PWM // frequency or PWM mode
+                          TC_COUNTER_SIZE_32BIT,       // 32bitタイマー
+                          TC_WAVE_GENERATION_MATCH_PWM // PWM mode
     );
     uint32_t compare3 = getCompare (5.0f); //Timer3の周波数(Hz)
     zerotimer3.setCompare (0, compare3);
@@ -126,10 +117,10 @@ void setup()
     Wire.begin(); // I2C setup
 
     // GPIO
-    pinMode (pin::D2, OUTPUT);
-    digitalWrite (pin::D2, HIGH);
-    pinMode (pin::D3, OUTPUT);
-    digitalWrite (pin::D3, HIGH);
+    pinMode (pin::CLOCK_OUT, OUTPUT);
+    digitalWrite (pin::CLOCK_OUT, HIGH);
+    pinMode (pin::GATE_OUT, OUTPUT);
+    digitalWrite (pin::GATE_OUT, HIGH);
     pinMode (pin::LED, OUTPUT);
     digitalWrite (pin::LED, HIGH);
     delay (1000);
