@@ -39,6 +39,7 @@ var NAVTREE =
     [ "SYSEX_END_2BYTES", "namespace_c_i_n.html#aa73065a5e40196dd6f5ea590759e02ec", null ],
     [ "SYSEX_END_3BYTES", "namespace_c_i_n.html#afd21c608516ec74842066d24c3a716aa", null ],
     [ "SYSEX_START_OR_CONTINUE", "namespace_c_i_n.html#a850b1ba5317c2ab3f38a99294b793016", null ],
+    [ "JustFriends", "namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a", null ],
     [ "Note", "struct_m_i_d_i_1_1_note.html", "struct_m_i_d_i_1_1_note" ],
     [ "ControlChange", "struct_m_i_d_i_1_1_control_change.html", "struct_m_i_d_i_1_1_control_change" ],
     [ "CLOCK_OUT", "pin_8hpp.html#a0a9134b968fdf393c74a00cf827fb5ef", null ],

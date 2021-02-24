@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['non_5fcommercial_60',['NON_COMMERCIAL',['../_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52',1,'SysEx::ManufacturerID']]],
-  ['non_5frealtime_61',['NON_REALTIME',['../_midi_constants_8hpp.html#a5018affcd5879d24dbc4cfe092e25fb3',1,'SysEx::ManufacturerID']]],
-  ['notenumber_62',['noteNumber',['../struct_m_i_d_i_1_1_note.html#aca20467e89a379b78fc098053940de2e',1,'MIDI::Note']]]
+  ['jade_66',['JADE',['../_midi_constants_8hpp.html#a23ed785a6165f1c75c7bed93f741fbd9',1,'SysEx::DeviceID']]],
+  ['justfriends_67',['JustFriends',['../namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a',1,'ii::Address']]]
 ];
