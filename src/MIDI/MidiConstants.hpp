@@ -1,5 +1,5 @@
 /** 
-    Constants about MIDI
+    Constants about MIDI.
     @file MIDIConstants.hpp
     @author Akiyuki Okayasu (akiyuki.okayasu@gmail.com)
     @copyright Copyright (c) 2021 - Akiyuki Okayasu    

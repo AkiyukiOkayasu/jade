@@ -1,5 +1,5 @@
 /**
-    monome ii constants
+    monome ii constants.
     @file ii.hpp
     @author Akiyuki Okayasu (akiyuki.okayasu@gmail.com)
     @copyright Copyright (c) 2021 - Akiyuki Okayasu
@@ -8,19 +8,19 @@
 
 #include <cstdint>
 
-/** Constants for ii
+/** Constants for ii.
     ii format
     [address byte][command byte][data bytes(optional)]
 */
 namespace ii
 {
-// Address byte
+/// Address byte.
 namespace Address
 {
     constexpr uint8_t JustFriends = 0x70; ///< Just Friends
 }
 
-// Command byte
+/// Command byte.
 namespace Command
 {
     namespace JustFriends
