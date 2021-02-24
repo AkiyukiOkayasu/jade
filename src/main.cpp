@@ -62,6 +62,7 @@ constexpr uint8_t margeBytes (const uint8_t msb, const uint8_t lsb)
 */
 void sysExCallback (const uint8_t sysEx[], const uint8_t size)
 {
+    // TODO jade用SysExフォーマットに合わせて書き直す. 先頭2byteが非営利、デバイスIDになる。その後はmonome ii用の分割済データ
     const uint8_t addr = margeBytes (sysEx[0], sysEx[1]);
     Wire.beginTransmission (addr);
 
