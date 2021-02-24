@@ -48,6 +48,6 @@ namespace ManufacturerID
 namespace DeviceID
 {
     constexpr uint8_t ALL = 0x7F;  ///< 全端末
-    // TODO jadeのDeviceIDを追加する?
+    constexpr uint8_t JADE = 0x76; ///< jade
 } // namespace DeviceID
 } // namespace SysEx
