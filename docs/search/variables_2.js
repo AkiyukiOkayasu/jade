@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['justfriends_41',['JustFriends',['../ii_8hpp.html#ae0349e36734912c6a3ceda8ba9f29e2a',1,'ii::Address']]]
+  ['channel_54',['channel',['../struct_m_i_d_i_1_1_note.html#af33bd4b7ef7e1f62607ec4492c33626a',1,'MIDI::Note::channel()'],['../struct_m_i_d_i_1_1_control_change.html#a077eca3e8761a806353e2e534e4bcc27',1,'MIDI::ControlChange::channel()']]],
+  ['channel_5fpressure_55',['CHANNEL_PRESSURE',['../namespace_c_i_n.html#ae97167fc16ffc79f1cc311c0129ac295',1,'CIN']]],
+  ['controlnumber_56',['controlNumber',['../struct_m_i_d_i_1_1_control_change.html#a79004ec0e6180ecdbe0cf380f66b6994',1,'MIDI::ControlChange']]]
 ];

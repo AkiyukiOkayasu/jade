@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['value_50',['value',['../struct_m_i_d_i_1_1_control_change.html#a37339e4715fab586c01104c9720eabad',1,'MIDI::ControlChange']]],
-  ['velocity_51',['velocity',['../struct_m_i_d_i_1_1_note.html#adbfaa24086a1aa7919e5c5f252bd4425',1,'MIDI::Note']]]
+  ['oncontrolchange_63',['onControlChange',['../class_usb_midi_parser.html#ad4d08dfd9f9efab3046c234c3107c93a',1,'UsbMidiParser']]],
+  ['onnoteoff_64',['onNoteOff',['../class_usb_midi_parser.html#a2b860bc3dfbb90ffca4387f1fbb5e236',1,'UsbMidiParser']]],
+  ['onnoteon_65',['onNoteOn',['../class_usb_midi_parser.html#ad22553fff56f0f1c892e3a43c4c61000',1,'UsbMidiParser']]],
+  ['onsysex_66',['onSysEx',['../class_usb_midi_parser.html#aaf84bebb8077a8da3775fbc32a37b8f7',1,'UsbMidiParser']]]
 ];

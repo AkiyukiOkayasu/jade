@@ -5,6 +5,7 @@ var _midi_constants_8hpp =
     [ "CHANNEL_PRESSURE", "_midi_constants_8hpp.html#ae97167fc16ffc79f1cc311c0129ac295", null ],
     [ "CONTROL_CHANGE", "_midi_constants_8hpp.html#a6c9ca815d16e90e0a758a716ef9a7d3e", null ],
     [ "END", "_midi_constants_8hpp.html#aa5f15a89040e011994356d89063eefc6", null ],
+    [ "JADE", "_midi_constants_8hpp.html#a23ed785a6165f1c75c7bed93f741fbd9", null ],
     [ "NON_COMMERCIAL", "_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52", null ],
     [ "NON_REALTIME", "_midi_constants_8hpp.html#a5018affcd5879d24dbc4cfe092e25fb3", null ],
     [ "NOTE_OFF", "_midi_constants_8hpp.html#a3b1a62ef705205ae714623a40e25302a", null ],

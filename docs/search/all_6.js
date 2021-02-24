@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['oncontrolchange_16',['onControlChange',['../class_usb_midi_parser.html#ad4d08dfd9f9efab3046c234c3107c93a',1,'UsbMidiParser']]],
-  ['onnoteoff_17',['onNoteOff',['../class_usb_midi_parser.html#a2b860bc3dfbb90ffca4387f1fbb5e236',1,'UsbMidiParser']]],
-  ['onnoteon_18',['onNoteOn',['../class_usb_midi_parser.html#ad22553fff56f0f1c892e3a43c4c61000',1,'UsbMidiParser']]],
-  ['onsysex_19',['onSysEx',['../class_usb_midi_parser.html#aaf84bebb8077a8da3775fbc32a37b8f7',1,'UsbMidiParser']]]
+  ['jade_11',['JADE',['../_midi_constants_8hpp.html#a23ed785a6165f1c75c7bed93f741fbd9',1,'SysEx::DeviceID']]],
+  ['justfriends_12',['JustFriends',['../ii_8hpp.html#ae0349e36734912c6a3ceda8ba9f29e2a',1,'ii::Address']]]
 ];

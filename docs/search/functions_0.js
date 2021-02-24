@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['margebytes_37',['margeBytes',['../main_8cpp.html#a463d8104f5d30afafa789fa831da5c5d',1,'main.cpp']]]
+  ['getcompare_49',['getCompare',['../main_8cpp.html#a1af4696f1a813e67a8cb99c576595b73',1,'main.cpp']]]
 ];
