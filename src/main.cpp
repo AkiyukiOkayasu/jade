@@ -36,8 +36,7 @@ void timer3Callback (void)
     logicD2 = ! logicD2;
 }
 
-/** 
-    Calculate hardware timer compare value from frequency
+/** Calculate hardware timer compare value from frequency.
     @param frequency Hz
     @return constexpr uint32_t 
 */
@@ -46,8 +45,7 @@ constexpr uint32_t getCompare (float frequency)
     return static_cast<uint32_t> ((timer::CLOCK / timer::PRESCALER) / frequency);
 }
 
-/** 
-    [0, 127]の範囲の2つのuint8を[0, 255]とする.
+/** [0, 127]の範囲の2つのuint8を[0, 255]とする.
     @param msb [0, 127]
     @param lsb [0, 127]
     @return constexpr uint8_t [0, 255]
@@ -58,9 +56,8 @@ constexpr uint8_t margeBytes (const uint8_t msb, const uint8_t lsb)
     return (msb << 4) | (lsb & 0x0F);
 }
 
-/** 
-    SysExのコールバック関数
-    @param sysEx 受信したデータ配列
+/** SysExのコールバック関数.
+    @param sysEx 受信したデータ配列 (SysEx開始, 終了の0xF0と0xF7を除く)
     @param size データ配列の長さ
 */
 void sysExCallback (const uint8_t sysEx[], const uint8_t size)
