@@ -67,10 +67,10 @@ constexpr uint8_t margeBytes (const uint8_t msb, const uint8_t lsb)
 /** SysExのコールバック関数.
     @param sysEx 受信したデータ配列 (SysEx開始, 終了の0xF0と0xF7を除く)
     @param size データ配列の長さ
+    @todo jade用SysExフォーマットに合わせて書き直す. 先頭2byteが非営利、デバイスIDになる。その後はmonome ii用の分割済データ
 */
 void sysExCallback (const uint8_t sysEx[], const uint8_t size)
 {
-    // TODO jade用SysExフォーマットに合わせて書き直す. 先頭2byteが非営利、デバイスIDになる。その後はmonome ii用の分割済データ
     const uint8_t addr = margeBytes (sysEx[0], sysEx[1]);
     Wire.beginTransmission (addr);
 
