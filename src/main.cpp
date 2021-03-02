@@ -20,17 +20,23 @@ constexpr uint32_t PRESCALER = 1;
 } // namespace timer
 
 UsbMidiParser midiParser;
-Adafruit_ZeroTimer zerotimer3 = Adafruit_ZeroTimer (3); // Hardware timer 3
 
-// Hardware timer peripheeral handlers
-void TC3_Handler()
+/** 16bitハードウェアタイマーペリフェラル4と5を組み合わせて32bitタイマーを作らせる.
+    @attention 32bitタイマーは偶数のタイマーでしかつくれない。SeeeduinoXIAOはタイマー3, 4, 5しかないのでタイマー4でしか作れないことになる。    
+*/
+Adafruit_ZeroTimer timer4 = Adafruit_ZeroTimer (4);
+
+/** Hardware timer peripheeral handlers.
+    @attention これがないとAdafruit_ZeroTimer.hがうごかない
+*/
+void TC4_Handler()
 {
-    Adafruit_ZeroTimer::timerHandler (3); //Clear timer flag
+    Adafruit_ZeroTimer::timerHandler (4); //Clear timer flag
 }
 
-// Timer callback
+/// タイマーのユーザーコールバック関数.
 std::atomic<bool> logicD2 = { false };
-void timer3Callback (void)
+void timer4Callback (void)
 {
     digitalWrite (pin::CLOCK_OUT, logicD2);
     logicD2 = ! logicD2;
@@ -77,15 +83,15 @@ void setup()
     SerialUSB.begin (115200);
 
     // Timer
-    zerotimer3.enable (false);
-    zerotimer3.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler 1
-                          TC_COUNTER_SIZE_32BIT,       // 32bitタイマー
-                          TC_WAVE_GENERATION_MATCH_PWM // PWM mode
+    timer4.enable (false);
+    timer4.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler 1
+                      TC_COUNTER_SIZE_32BIT,       // 32bitタイマー
+                      TC_WAVE_GENERATION_MATCH_PWM // PWM mode
     );
     uint32_t compare3 = getCompare (5.0f); //Timer3の周波数(Hz)
-    zerotimer3.setCompare (0, compare3);
-    zerotimer3.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer3Callback);
-    zerotimer3.enable (true);
+    timer4.setCompare (0, compare3);
+    timer4.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer4Callback);
+    timer4.enable (true);
 
     // MIDI
     midiParser.onNoteOn = [] (MIDI::Note note) {
