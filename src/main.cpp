@@ -21,6 +21,8 @@ constexpr uint32_t PRESCALER = 1;
 
 UsbMidiParser midiParser;
 
+std::atomic<bool> gateIn[4];
+
 /** 16bitハードウェアタイマーペリフェラル4と5を組み合わせて32bitタイマーを作らせる.
     @attention 32bitタイマーは偶数のタイマーでしかつくれない。SeeeduinoXIAOはタイマー3, 4, 5しかないのでタイマー4でしか作れないことになる。    
 */
@@ -129,6 +131,31 @@ void setup()
     digitalWrite (pin::GATE_OUT, HIGH);
     pinMode (pin::LED, OUTPUT);
     digitalWrite (pin::LED, HIGH);
+
+    // GATE in
+    pinMode (pin::GATE_IN1, INPUT_PULLUP);
+    pinMode (pin::GATE_IN2, INPUT_PULLUP);
+    pinMode (pin::GATE_IN3, INPUT_PULLUP);
+    pinMode (pin::GATE_IN4, INPUT_PULLUP);
+
+    attachInterrupt (
+        pin::GATE_IN1,
+        [] { gateIn[0] = true; },
+        FALLING);
+    attachInterrupt (
+        pin::GATE_IN2,
+        [] { gateIn[1] = true; },
+        FALLING);
+    attachInterrupt (
+        pin::GATE_IN3,
+        [] { gateIn[2] = true; },
+        FALLING);
+    attachInterrupt (
+        pin::GATE_IN4,
+        [] { gateIn[3] = true; },
+        FALLING);
+    delay (1000);
+    SerialUSB.println ("hogehgoe");
     delay (1000);
 }
 
@@ -140,5 +167,15 @@ void loop()
         rx = MidiUSB.read();
         midiParser.parse (rx);
     } while (rx.header != 0);
+
+    // Gate Input
+    for (uint8_t i = 0; i < 4; ++i)
+    {
+        if (gateIn[i] == true)
+        {
+            gateIn[i] = false;
+            SerialUSB.println (i);
+        }
+    }
     delayMicroseconds (50);
 }
