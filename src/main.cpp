@@ -90,7 +90,7 @@ void setup()
                       TC_COUNTER_SIZE_32BIT,       // 32bitタイマー
                       TC_WAVE_GENERATION_MATCH_PWM // PWM mode
     );
-    uint32_t compare3 = getCompare (5.0f); //Timer3の周波数(Hz)
+    uint32_t compare3 = getCompare (5.0f); //Timerの周波数(Hz)
     timer4.setCompare (0, compare3);
     timer4.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer4Callback);
     timer4.enable (true);
