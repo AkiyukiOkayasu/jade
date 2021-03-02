@@ -95,11 +95,11 @@ void setup()
 
     // MIDI
     midiParser.onNoteOn = [] (MIDI::Note note) {
-        digitalWrite (pin::LED, LOW);
+        digitalWrite (pin::GATE_OUT, HIGH);
     };
 
     midiParser.onNoteOff = [] (MIDI::Note note) {
-        digitalWrite (pin::LED, HIGH);
+        digitalWrite (pin::GATE_OUT, LOW);
     };
 
     midiParser.onControlChange = [] (MIDI::ControlChange cc) {
