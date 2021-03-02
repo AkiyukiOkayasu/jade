@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['value_82',['value',['../struct_m_i_d_i_1_1_control_change.html#a37339e4715fab586c01104c9720eabad',1,'MIDI::ControlChange']]],
-  ['velocity_83',['velocity',['../struct_m_i_d_i_1_1_note.html#adbfaa24086a1aa7919e5c5f252bd4425',1,'MIDI::Note']]]
+  ['sys_5frealtime_93',['SYS_REALTIME',['../namespace_c_i_n.html#ae1924f325d574951655f6cbaefd2ba1b',1,'CIN']]],
+  ['syscommon_5f2bytes_94',['SYSCOMMON_2BYTES',['../namespace_c_i_n.html#aa029c6af39b6c67b694a22e24128fc48',1,'CIN']]],
+  ['sysex_5fend_5f1byte_95',['SYSEX_END_1BYTE',['../namespace_c_i_n.html#a22808258139db677fa986c04690af0e4',1,'CIN']]],
+  ['sysex_5fend_5f2bytes_96',['SYSEX_END_2BYTES',['../namespace_c_i_n.html#aa73065a5e40196dd6f5ea590759e02ec',1,'CIN']]],
+  ['sysex_5fend_5f3bytes_97',['SYSEX_END_3BYTES',['../namespace_c_i_n.html#afd21c608516ec74842066d24c3a716aa',1,'CIN']]]
 ];
