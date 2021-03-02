@@ -34,7 +34,9 @@ void TC4_Handler()
     Adafruit_ZeroTimer::timerHandler (4); //Clear timer flag
 }
 
-/// タイマーのユーザーコールバック関数.
+/** タイマーのユーザーコールバック関数.
+    @todo Single Cycle IOBUSでGPIOトグルの高速化を検討する
+*/
 std::atomic<bool> logicD2 = { false };
 void timer4Callback (void)
 {
