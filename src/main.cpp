@@ -155,8 +155,6 @@ void setup()
         [] { gateIn[3] = true; },
         FALLING);
     delay (1000);
-    SerialUSB.println ("hogehgoe");
-    delay (1000);
 }
 
 void loop()
