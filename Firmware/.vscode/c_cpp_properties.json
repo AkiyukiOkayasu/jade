@@ -8,11 +8,11 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/Users/akiyuki/Documents/jade/firmware/include",
-                "/Users/akiyuki/Documents/jade/firmware/src",
+                "/Users/akiyuki/Documents/jade/Firmware/include",
+                "/Users/akiyuki/Documents/jade/Firmware/src",
                 "/Users/akiyuki/.platformio/packages/framework-arduino-samd-seeed/libraries/Wire",
-                "/Users/akiyuki/Documents/jade/firmware/.pio/libdeps/seeed_xiao/Adafruit ZeroTimer Library",
-                "/Users/akiyuki/Documents/jade/firmware/.pio/libdeps/seeed_xiao/MIDIUSB/src",
+                "/Users/akiyuki/Documents/jade/Firmware/.pio/libdeps/seeed_xiao/Adafruit ZeroTimer Library",
+                "/Users/akiyuki/Documents/jade/Firmware/.pio/libdeps/seeed_xiao/MIDIUSB/src",
                 "/Users/akiyuki/.platformio/packages/framework-cmsis/CMSIS/Include",
                 "/Users/akiyuki/.platformio/packages/framework-cmsis-atmel/CMSIS/Device/ATMEL",
                 "/Users/akiyuki/.platformio/packages/framework-arduino-samd-seeed/cores/arduino",
@@ -39,11 +39,11 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/Users/akiyuki/Documents/jade/firmware/include",
-                    "/Users/akiyuki/Documents/jade/firmware/src",
+                    "/Users/akiyuki/Documents/jade/Firmware/include",
+                    "/Users/akiyuki/Documents/jade/Firmware/src",
                     "/Users/akiyuki/.platformio/packages/framework-arduino-samd-seeed/libraries/Wire",
-                    "/Users/akiyuki/Documents/jade/firmware/.pio/libdeps/seeed_xiao/Adafruit ZeroTimer Library",
-                    "/Users/akiyuki/Documents/jade/firmware/.pio/libdeps/seeed_xiao/MIDIUSB/src",
+                    "/Users/akiyuki/Documents/jade/Firmware/.pio/libdeps/seeed_xiao/Adafruit ZeroTimer Library",
+                    "/Users/akiyuki/Documents/jade/Firmware/.pio/libdeps/seeed_xiao/MIDIUSB/src",
                     "/Users/akiyuki/.platformio/packages/framework-cmsis/CMSIS/Include",
                     "/Users/akiyuki/.platformio/packages/framework-cmsis-atmel/CMSIS/Device/ATMEL",
                     "/Users/akiyuki/.platformio/packages/framework-arduino-samd-seeed/cores/arduino",
