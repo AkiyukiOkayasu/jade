@@ -73,13 +73,20 @@ constexpr uint8_t margeBytes (const uint8_t msb, const uint8_t lsb)
 */
 void sysExCallback (const uint8_t sysEx[], const uint8_t size)
 {
-    const uint8_t addr = margeBytes (sysEx[0], sysEx[1]);
-    Wire.beginTransmission (addr);
+    // jadeに送られるSysExのバイト分割をするので必ず偶数サイズになる
+    if (size % 2 == 0)
+        return;
 
-    for (uint_fast8_t i = 2; i < size; i += 2)
-        Wire.write (margeBytes (sysEx[i], sysEx[i + 1]));
+    if (sysEx[0] == SysEx::ManufacturerID::NON_COMMERCIAL && sysEx[1] == SysEx::DeviceID::JADE)
+    {
+        const uint8_t addr = margeBytes (sysEx[2], sysEx[3]);
+        Wire.beginTransmission (addr);
 
-    Wire.endTransmission();
+        for (uint_fast8_t i = 4; i < size; i += 2)
+            Wire.write (margeBytes (sysEx[i], sysEx[i + 1]));
+
+        Wire.endTransmission();
+    }
 }
 
 void setup()
