@@ -1,3 +1,0 @@
-= Panel
-
-image::https://i.gyazo.com/90afa2be91fc677f173581c6ce0f5b7c.png[panel]
