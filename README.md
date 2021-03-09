@@ -20,7 +20,7 @@ It should be noted that this project is in its early stages.
 
 ## Document
 
-https://akiyukiokayasu.github.io/jade/[document]  
+[document](https://akiyukiokayasu.github.io/jade/)
 
 ## Data format
 
