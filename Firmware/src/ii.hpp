@@ -17,8 +17,13 @@ namespace ii
 /// Address byte.
 namespace Address
 {
+    constexpr uint8_t crow = 0x01;        ///< crow
     constexpr uint8_t JustFriends = 0x70; ///< Just Friends
-}
+    constexpr uint8_t Ansible = 0x20;     ///< Ansible
+    constexpr uint8_t ER301_1 = 0x31;     ///< ER-301 1
+    constexpr uint8_t ER301_2 = 0x32;     ///< ER-301 2
+    constexpr uint8_t ER301_3 = 0x33;     ///< ER-301 3
+} // namespace Address
 
 /// Command byte.
 namespace Command
