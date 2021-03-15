@@ -22,7 +22,6 @@ var main_8cpp =
     [ "timer4Callback", "main_8cpp.html#af8378b828e3b00df4bf0eeff1e25bfbd", null ],
     [ "CLOCK", "main_8cpp.html#a3777c22d1f4db1f6c8f8eab2faae9895", null ],
     [ "gateInputStates", "main_8cpp.html#a96863a3994a80aecc713a7ae95be8084", null ],
-    [ "logicD2", "main_8cpp.html#afe3a94359e42e3da46270955b3b14574", null ],
     [ "midiParser", "main_8cpp.html#a07dee9748a91e6950d0a06f4c810ae42", null ],
     [ "NUM_GATE_INPUTS", "main_8cpp.html#a97026727d330a4d330eac93401fec470", null ],
     [ "PRESCALER", "main_8cpp.html#af81d0254097ce1c433ebcc1a00b87a5f", null ],
