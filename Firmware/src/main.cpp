@@ -64,11 +64,9 @@ void TC4_Handler()
 /** タイマーのユーザーコールバック関数.
     @todo Single Cycle IOBUSでGPIOトグルの高速化を検討する
 */
-std::atomic<bool> logicD2 = { false };
 void timer4Callback (void)
 {
-    digitalWrite (pin::CLOCK_OUT, logicD2);
-    logicD2 = ! logicD2;
+    digitalWrite (pin::CLOCK_OUT, ! digitalRead (pin::CLOCK_OUT));
 }
 
 /** Calculate hardware timer compare value from frequency.
