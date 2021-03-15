@@ -24,6 +24,18 @@ UsbMidiParser midiParser;
 std::atomic<bool> gateIn[4];
 constexpr uint8_t NUM_GATE_INPUTS = 4;
 
+//============== Util ===========================================================================
+/** [0, 127]の範囲の2つのuint8を[0, 255]とする.
+    @param msb [0, 127]
+    @param lsb [0, 127]
+    @return constexpr uint8_t [0, 255]
+    @note SysExの仕組み上128以上の数は送信できないのでI2Cの1byteを2byteに分割して送信している
+*/
+constexpr uint8_t
+    mergeBytes (const uint8_t msb, const uint8_t lsb)
+{
+    return (msb << 4) | (lsb & 0x0F);
+}
 /** 16bitハードウェアタイマーペリフェラル4と5を組み合わせて32bitタイマーを作らせる.
     @attention 32bitタイマーは偶数のタイマーでしかつくれない。SeeeduinoXIAOはタイマー3, 4, 5しかないのでタイマー4でしか作れないことになる。    
 */
@@ -56,17 +68,6 @@ constexpr uint32_t getCompare (float frequency)
     return static_cast<uint32_t> ((timer::CLOCK / timer::PRESCALER) / frequency);
 }
 
-/** [0, 127]の範囲の2つのuint8を[0, 255]とする.
-    @param msb [0, 127]
-    @param lsb [0, 127]
-    @return constexpr uint8_t [0, 255]
-    @note SysExの仕組み上128以上の数は送信できないのでI2Cの1byteを2byteに分割して送信している
-*/
-constexpr uint8_t margeBytes (const uint8_t msb, const uint8_t lsb)
-{
-    return (msb << 4) | (lsb & 0x0F);
-}
-
 /** SysExのコールバック関数.
     @param sysEx 受信したデータ配列 (SysEx開始, 終了の0xF0と0xF7を除く)
     @param size データ配列の長さ
@@ -80,11 +81,11 @@ void sysExCallback (const uint8_t sysEx[], const uint8_t size)
 
     if (sysEx[0] == SysEx::ManufacturerID::NON_COMMERCIAL && sysEx[1] == SysEx::DeviceID::JADE)
     {
-        const uint8_t addr = margeBytes (sysEx[2], sysEx[3]);
+        const uint8_t addr = mergeBytes (sysEx[2], sysEx[3]);
         Wire.beginTransmission (addr);
 
         for (uint_fast8_t i = 4; i < size; i += 2)
-            Wire.write (margeBytes (sysEx[i], sysEx[i + 1]));
+            Wire.write (mergeBytes (sysEx[i], sysEx[i + 1]));
 
         Wire.endTransmission();
     }
