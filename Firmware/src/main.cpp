@@ -81,8 +81,7 @@ constexpr uint32_t getCompare (float frequency)
 //=============== MIDI callback =========================================================================
 /** SysExのコールバック関数.
     @param sysEx 受信したデータ配列 (SysEx開始, 終了の0xF0と0xF7を除く)
-    @param size データ配列の長さ
-    @todo jade用SysExフォーマットに合わせて書き直す. 先頭2byteが非営利、デバイスIDになる。その後はmonome ii用の分割済データ
+    @param size データ配列の長さ    
 */
 void sysExCallback (const uint8_t sysEx[], const uint8_t size)
 {
@@ -90,6 +89,7 @@ void sysExCallback (const uint8_t sysEx[], const uint8_t size)
     if (size % 2 == 0)
         return;
 
+    // 最初の2バイトはUniversalSysEx非営利, JadeのSysExデバイスIDとなる
     if (sysEx[0] == SysEx::ManufacturerID::NON_COMMERCIAL && sysEx[1] == SysEx::DeviceID::JADE)
     {
         const uint8_t addr = mergeBytes (sysEx[2], sysEx[3]);
