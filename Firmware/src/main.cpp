@@ -231,23 +231,11 @@ void setup()
     pinMode (pin::GATE_IN2, INPUT_PULLUP);
     pinMode (pin::GATE_IN3, INPUT_PULLUP);
     pinMode (pin::GATE_IN4, INPUT_PULLUP);
+    attachInterrupt (pin::GATE_IN1, gate1Changed, CHANGE);
+    attachInterrupt (pin::GATE_IN2, gate2Changed, CHANGE);
+    attachInterrupt (pin::GATE_IN3, gate3Changed, CHANGE);
+    attachInterrupt (pin::GATE_IN4, gate4Changed, CHANGE);
 
-    attachInterrupt (
-        pin::GATE_IN1,
-        [] { gateIn[0] = true; },
-        FALLING);
-    attachInterrupt (
-        pin::GATE_IN2,
-        [] { gateIn[1] = true; },
-        FALLING);
-    attachInterrupt (
-        pin::GATE_IN3,
-        [] { gateIn[2] = true; },
-        FALLING);
-    attachInterrupt (
-        pin::GATE_IN4,
-        [] { gateIn[3] = true; },
-        FALLING);
     delay (1000);
 }
 
