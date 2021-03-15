@@ -42,8 +42,7 @@ std::array<std::atomic<GateInputState>, NUM_GATE_INPUTS> gateInputStates {};
     @return constexpr uint8_t [0, 255]
     @note SysExの仕組み上128以上の数は送信できないのでI2Cの1byteを2byteに分割して送信している
 */
-constexpr uint8_t
-    mergeBytes (const uint8_t msb, const uint8_t lsb)
+constexpr uint8_t mergeBytes (const uint8_t msb, const uint8_t lsb)
 {
     return (msb << 4) | (lsb & 0x0F);
 }
