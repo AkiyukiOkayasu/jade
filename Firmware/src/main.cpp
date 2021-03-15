@@ -5,6 +5,7 @@
 */
 
 #include "Adafruit_ZeroTimer.h"
+#include "MIDI/MIDIGenerator.hpp"
 #include "MIDI/MIDIParser.hpp"
 #include "MIDIUSB.h"
 #include "pin.hpp"
@@ -248,14 +249,21 @@ void loop()
         midiParser.parse (rx);
     } while (rx.header != 0);
 
-    // Gate Input
-    for (uint8_t i = 0; i < 4; ++i)
+    for (uint8_t i = 0; i < gateInputStates.size(); ++i)
     {
-        if (gateIn[i] == true)
+        if (gateInputStates[i] == GateInputState::Rise)
         {
-            gateIn[i] = false;
-            SerialUSB.println (i);
+            // MIDI note on
+            MidiUSB.sendMIDI (makeNoteOn (60, 127, i));
+            MidiUSB.flush(); // TODO　MidiUSB.flush()をやるべきか？もしくはここでやるべきかを再検討
+        }
+        else if (gateInputStates[i] == GateInputState::Fall)
+        {
+            // MIDI note off
+            MidiUSB.sendMIDI (makeNoteOff (60, i));
+            MidiUSB.flush(); // TODO　MidiUSB.flush()をやるべきか？もしくはここでやるべきかを再検討
         }
     }
+
     delayMicroseconds (50);
 }
