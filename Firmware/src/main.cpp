@@ -195,8 +195,6 @@ void gate4Changed()
 //==================================================================================================
 void setup()
 {
-    SerialUSB.begin (115200);
-
     // Timer
     timer4.enable (false);
     timer4.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler 1
