@@ -25,6 +25,19 @@
 var NAVTREE =
 [
   [ "jade", "index.html", [
+    [ "jade hardware", "md__hardware__r_e_a_d_m_e.html", null ],
+    [ "jade_M4L", "md_jade__m4_l__r_e_a_d_m_e.html", null ],
+    [ "Panel", "md__panel__r_e_a_d_m_e.html", null ],
+    [ "jade", "md__r_e_a_d_m_e.html", [
+      [ "Eurorack module", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
+      [ "Firmware", "md__r_e_a_d_m_e.html#autotoc_md5", [
+        [ "Dependencies", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
+      ] ],
+      [ "Max for Live", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
+      [ "Document", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
+      [ "Data format", "md__r_e_a_d_m_e.html#autotoc_md9", null ],
+      [ "LICENSE", "md__r_e_a_d_m_e.html#autotoc_md10", null ]
+    ] ],
     [ "Todo List", "todo.html", null ],
     [ "CHANNEL_PRESSURE", "namespace_c_i_n.html#ae97167fc16ffc79f1cc311c0129ac295", null ],
     [ "CONTROL_CHANGE", "namespace_c_i_n.html#a6c9ca815d16e90e0a758a716ef9a7d3e", null ],
@@ -40,6 +53,11 @@ var NAVTREE =
     [ "SYSEX_END_2BYTES", "namespace_c_i_n.html#aa73065a5e40196dd6f5ea590759e02ec", null ],
     [ "SYSEX_END_3BYTES", "namespace_c_i_n.html#afd21c608516ec74842066d24c3a716aa", null ],
     [ "SYSEX_START_OR_CONTINUE", "namespace_c_i_n.html#a850b1ba5317c2ab3f38a99294b793016", null ],
+    [ "Ansible", "namespaceii_1_1_address.html#a3aa2a3bc2b813040bf849364afe17437", null ],
+    [ "crow", "namespaceii_1_1_address.html#a2ad477a85b4b0662f5844e6d2da90381", null ],
+    [ "ER301_1", "namespaceii_1_1_address.html#a9a69b5338f0dccef9f4757f009f963a1", null ],
+    [ "ER301_2", "namespaceii_1_1_address.html#a54556b2348840ac3ad4bc7ad4206f910", null ],
+    [ "ER301_3", "namespaceii_1_1_address.html#aef0ea5c9c6c3b70b5725416cf27eb73d", null ],
     [ "JustFriends", "namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a", null ],
     [ "Note", "struct_m_i_d_i_1_1_note.html", "struct_m_i_d_i_1_1_note" ],
     [ "ControlChange", "struct_m_i_d_i_1_1_control_change.html", "struct_m_i_d_i_1_1_control_change" ],
@@ -48,7 +66,6 @@ var NAVTREE =
     [ "GATE_IN2", "pin_8hpp.html#a8ca453ce14b7e34abae27273bbc3c5ea", null ],
     [ "GATE_IN3", "pin_8hpp.html#a17beea909ecc1a558f876e2dbda9745c", null ],
     [ "GATE_IN4", "pin_8hpp.html#af362106e074f2a2dea3e5b770ede1f3f", null ],
-    [ "GATE_IN5", "pin_8hpp.html#a1651806941aa7c855470105904f200b2", null ],
     [ "GATE_OUT", "pin_8hpp.html#a5a7ea16e508a1d30b24cc68b1208cec9", null ],
     [ "I2C_SCL", "pin_8hpp.html#ae47339b8757049761604b6d92eaf8179", null ],
     [ "I2C_SDA", "pin_8hpp.html#a8b410b2aae5d93f3b2a8b8a136e4e379", null ],

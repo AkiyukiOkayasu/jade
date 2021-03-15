@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getcompare_64',['getCompare',['../main_8cpp.html#a1af4696f1a813e67a8cb99c576595b73',1,'main.cpp']]]
+  ['controlchangecallback_84',['controlChangeCallback',['../main_8cpp.html#af9049ba30621b50bd29a9c59e64d0351',1,'main.cpp']]]
 ];

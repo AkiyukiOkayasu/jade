@@ -1,0 +1,14 @@
+digraph "Firmware/src" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_74b6a3b63f61c160c0f14b7a283a4c9b {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Firmware" fontname="Helvetica", fontsize="10", URL="dir_74b6a3b63f61c160c0f14b7a283a4c9b.html"]
+  subgraph clusterdir_1d3c3c7140805695fa0274ab03b7eab2 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_1d3c3c7140805695fa0274ab03b7eab2.html"];
+    dir_1d3c3c7140805695fa0274ab03b7eab2 [shape=plaintext label="src"];
+  dir_059f89fcaff6da877dc1f1c16870562b [shape=box label="MIDI" fillcolor="white" style="filled" URL="dir_059f89fcaff6da877dc1f1c16870562b.html"];
+  }
+  }
+  dir_1d3c3c7140805695fa0274ab03b7eab2->dir_059f89fcaff6da877dc1f1c16870562b [headlabel="2", labeldistance=1.5 headhref="dir_000001_000002.html"];
+}

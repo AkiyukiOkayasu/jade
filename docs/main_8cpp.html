@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>jade: src/main.cpp File Reference</title>
+<title>jade: Firmware/src/main.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -103,20 +104,34 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 <p>jade main  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;Adafruit_ZeroTimer.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_midi_generator_8hpp_source.html">MIDI/MIDIGenerator.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_midi_parser_8hpp_source.html">MIDI/MIDIParser.hpp</a>&quot;</code><br />
 <code>#include &quot;MIDIUSB.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="pin_8hpp_source.html">pin.hpp</a>&quot;</code><br />
 <code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &lt;Wire.h&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#asrc_2main_8cpp" alt=""/></div>
+<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#a_firmware_2src_2main_8cpp" alt=""/></div>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ac22b5ec98803feb017c6ff9d1e9b30ae"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ac22b5ec98803feb017c6ff9d1e9b30ae">GateInputState</a> : uint8_t { <a class="el" href="main_8cpp.html#ac22b5ec98803feb017c6ff9d1e9b30aea28d0edd045e05cf5af64e35ae0c4c6ef">Low</a> = 0
+, <a class="el" href="main_8cpp.html#ac22b5ec98803feb017c6ff9d1e9b30aea64d71b4eabcd8de0a1d64bd6d5973c50">Rise</a>
+, <a class="el" href="main_8cpp.html#ac22b5ec98803feb017c6ff9d1e9b30aea655d20c1ca69519ca647684edbb2db35">High</a>
+, <a class="el" href="main_8cpp.html#ac22b5ec98803feb017c6ff9d1e9b30aea58fa788345ab5ac21c2cef38907d4580">Fall</a>
+ }</td></tr>
+<tr class="separator:ac22b5ec98803feb017c6ff9d1e9b30ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aa72b8a64d27eff7ce532100b609f856a"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa72b8a64d27eff7ce532100b609f856a">mergeBytes</a> (const uint8_t msb, const uint8_t lsb)</td></tr>
+<tr class="memdesc:aa72b8a64d27eff7ce532100b609f856a"><td class="mdescLeft">&#160;</td><td class="mdescRight">[0, 127]の範囲の2つのuint8を[0, 255]とする.  <a href="main_8cpp.html#aa72b8a64d27eff7ce532100b609f856a">More...</a><br /></td></tr>
+<tr class="separator:aa72b8a64d27eff7ce532100b609f856a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2e92c24e5ff352b800fae9ce54cec2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#af2e92c24e5ff352b800fae9ce54cec2f">TC4_Handler</a> ()</td></tr>
 <tr class="memdesc:af2e92c24e5ff352b800fae9ce54cec2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware timer peripheeral handlers.  <a href="main_8cpp.html#af2e92c24e5ff352b800fae9ce54cec2f">More...</a><br /></td></tr>
 <tr class="separator:af2e92c24e5ff352b800fae9ce54cec2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,12 +141,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>timer4Callback</b> (v
 <tr class="memitem:a1af4696f1a813e67a8cb99c576595b73"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1af4696f1a813e67a8cb99c576595b73">getCompare</a> (float frequency)</td></tr>
 <tr class="memdesc:a1af4696f1a813e67a8cb99c576595b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate hardware timer compare value from frequency.  <a href="main_8cpp.html#a1af4696f1a813e67a8cb99c576595b73">More...</a><br /></td></tr>
 <tr class="separator:a1af4696f1a813e67a8cb99c576595b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a463d8104f5d30afafa789fa831da5c5d"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a463d8104f5d30afafa789fa831da5c5d">margeBytes</a> (const uint8_t msb, const uint8_t lsb)</td></tr>
-<tr class="memdesc:a463d8104f5d30afafa789fa831da5c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">[0, 127]の範囲の2つのuint8を[0, 255]とする.  <a href="main_8cpp.html#a463d8104f5d30afafa789fa831da5c5d">More...</a><br /></td></tr>
-<tr class="separator:a463d8104f5d30afafa789fa831da5c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ccd21460649ec3457dc0d4a60e56b1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8ccd21460649ec3457dc0d4a60e56b1d">sysExCallback</a> (const uint8_t sysEx[], const uint8_t size)</td></tr>
 <tr class="memdesc:a8ccd21460649ec3457dc0d4a60e56b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">SysExのコールバック関数.  <a href="main_8cpp.html#a8ccd21460649ec3457dc0d4a60e56b1d">More...</a><br /></td></tr>
 <tr class="separator:a8ccd21460649ec3457dc0d4a60e56b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b374885bef32272108a51c43cad22ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8b374885bef32272108a51c43cad22ac">noteOnCallback</a> (<a class="el" href="struct_m_i_d_i_1_1_note.html">MIDI::Note</a> note)</td></tr>
+<tr class="memdesc:a8b374885bef32272108a51c43cad22ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note on callback.  <a href="main_8cpp.html#a8b374885bef32272108a51c43cad22ac">More...</a><br /></td></tr>
+<tr class="separator:a8b374885bef32272108a51c43cad22ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb09b5a4276f1d4af6ad2b09f14978a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afb09b5a4276f1d4af6ad2b09f14978a2">noteOffCallback</a> (<a class="el" href="struct_m_i_d_i_1_1_note.html">MIDI::Note</a> note)</td></tr>
+<tr class="memdesc:afb09b5a4276f1d4af6ad2b09f14978a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note off callback.  <a href="main_8cpp.html#afb09b5a4276f1d4af6ad2b09f14978a2">More...</a><br /></td></tr>
+<tr class="separator:afb09b5a4276f1d4af6ad2b09f14978a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9049ba30621b50bd29a9c59e64d0351"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#af9049ba30621b50bd29a9c59e64d0351">controlChangeCallback</a> (<a class="el" href="struct_m_i_d_i_1_1_control_change.html">MIDI::ControlChange</a> cc)</td></tr>
+<tr class="memdesc:af9049ba30621b50bd29a9c59e64d0351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control change callback.  <a href="main_8cpp.html#af9049ba30621b50bd29a9c59e64d0351">More...</a><br /></td></tr>
+<tr class="separator:af9049ba30621b50bd29a9c59e64d0351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b98edca2d1b7e1037f66c0f742c316d"><td class="memItemLeft" align="right" valign="top"><a id="a5b98edca2d1b7e1037f66c0f742c316d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>gate1Changed</b> ()</td></tr>
+<tr class="separator:a5b98edca2d1b7e1037f66c0f742c316d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0dfb68b9940ea53029269aff542af92"><td class="memItemLeft" align="right" valign="top"><a id="af0dfb68b9940ea53029269aff542af92"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>gate2Changed</b> ()</td></tr>
+<tr class="separator:af0dfb68b9940ea53029269aff542af92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a644b23b4cb91e063de3fe96e80538f"><td class="memItemLeft" align="right" valign="top"><a id="a8a644b23b4cb91e063de3fe96e80538f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>gate3Changed</b> ()</td></tr>
+<tr class="separator:a8a644b23b4cb91e063de3fe96e80538f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b56df28a769e95dc19c6fd2178f95c6"><td class="memItemLeft" align="right" valign="top"><a id="a8b56df28a769e95dc19c6fd2178f95c6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>gate4Changed</b> ()</td></tr>
+<tr class="separator:a8b56df28a769e95dc19c6fd2178f95c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top"><a id="a4fc01d736fe50cf5b977f755b675f11d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setup</b> ()</td></tr>
 <tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +183,12 @@ constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer::
 <tr class="memitem:a07dee9748a91e6950d0a06f4c810ae42"><td class="memItemLeft" align="right" valign="top"><a id="a07dee9748a91e6950d0a06f4c810ae42"></a>
 <a class="el" href="class_usb_midi_parser.html">UsbMidiParser</a>&#160;</td><td class="memItemRight" valign="bottom"><b>midiParser</b></td></tr>
 <tr class="separator:a07dee9748a91e6950d0a06f4c810ae42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97026727d330a4d330eac93401fec470"><td class="memItemLeft" align="right" valign="top"><a id="a97026727d330a4d330eac93401fec470"></a>
+constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>NUM_GATE_INPUTS</b> = 4</td></tr>
+<tr class="separator:a97026727d330a4d330eac93401fec470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96863a3994a80aecc713a7ae95be8084"><td class="memItemLeft" align="right" valign="top"><a id="a96863a3994a80aecc713a7ae95be8084"></a>
+std::array&lt; std::atomic&lt; <a class="el" href="main_8cpp.html#ac22b5ec98803feb017c6ff9d1e9b30ae">GateInputState</a> &gt;, NUM_GATE_INPUTS &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>gateInputStates</b> {}</td></tr>
+<tr class="separator:a96863a3994a80aecc713a7ae95be8084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10b9617f9500d93f516a2f301e4eebd1"><td class="memItemLeft" align="right" valign="top">Adafruit_ZeroTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a10b9617f9500d93f516a2f301e4eebd1">timer4</a> = Adafruit_ZeroTimer (4)</td></tr>
 <tr class="memdesc:a10b9617f9500d93f516a2f301e4eebd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">16bitハードウェアタイマーペリフェラル4と5を組み合わせて32bitタイマーを作らせる.  <a href="main_8cpp.html#a10b9617f9500d93f516a2f301e4eebd1">More...</a><br /></td></tr>
 <tr class="separator:a10b9617f9500d93f516a2f301e4eebd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,7 +200,67 @@ constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer::
 <div class="textblock"><p>jade main </p>
 <dl class="section author"><dt>Author</dt><dd>Akiyuki Okayasu (<a href="#" onclick="location.href='mai'+'lto:'+'aki'+'yu'+'ki.'+'ok'+'aya'+'su'+'@gm'+'ai'+'l.c'+'om'; return false;">akiyu<span style="display: none;">.nosp@m.</span>ki.o<span style="display: none;">.nosp@m.</span>kayas<span style="display: none;">.nosp@m.</span>u@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a>) </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 - Akiyuki Okayasu </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ac22b5ec98803feb017c6ff9d1e9b30ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac22b5ec98803feb017c6ff9d1e9b30ae">&#9670;&nbsp;</a></span>GateInputState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="main_8cpp.html#ac22b5ec98803feb017c6ff9d1e9b30ae">GateInputState</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac22b5ec98803feb017c6ff9d1e9b30aea28d0edd045e05cf5af64e35ae0c4c6ef"></a>Low&#160;</td><td class="fielddoc"><p>Nothing to do. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac22b5ec98803feb017c6ff9d1e9b30aea64d71b4eabcd8de0a1d64bd6d5973c50"></a>Rise&#160;</td><td class="fielddoc"><p>MIDI note on. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac22b5ec98803feb017c6ff9d1e9b30aea655d20c1ca69519ca647684edbb2db35"></a>High&#160;</td><td class="fielddoc"><p>Nothing to do. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac22b5ec98803feb017c6ff9d1e9b30aea58fa788345ab5ac21c2cef38907d4580"></a>Fall&#160;</td><td class="fielddoc"><p>MIDI note off. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="af9049ba30621b50bd29a9c59e64d0351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9049ba30621b50bd29a9c59e64d0351">&#9670;&nbsp;</a></span>controlChangeCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void controlChangeCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_m_i_d_i_1_1_control_change.html">MIDI::ControlChange</a>&#160;</td>
+          <td class="paramname"><em>cc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Control change callback. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cc</td><td>input MIDI control change </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_m_i_d_i_1_1_control_change.html" title="MIDI Control change.">MIDI::ControlChange</a> </dd></dl>
+
+</div>
+</div>
 <a id="a1af4696f1a813e67a8cb99c576595b73"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1af4696f1a813e67a8cb99c576595b73">&#9670;&nbsp;</a></span>getCompare()</h2>
 
@@ -197,8 +296,8 @@ constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer::
 
 </div>
 </div>
-<a id="a463d8104f5d30afafa789fa831da5c5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a463d8104f5d30afafa789fa831da5c5d">&#9670;&nbsp;</a></span>margeBytes()</h2>
+<a id="aa72b8a64d27eff7ce532100b609f856a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa72b8a64d27eff7ce532100b609f856a">&#9670;&nbsp;</a></span>mergeBytes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +306,7 @@ constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer::
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint8_t margeBytes </td>
+          <td class="memname">constexpr uint8_t mergeBytes </td>
           <td>(</td>
           <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>msb</em>, </td>
@@ -241,6 +340,60 @@ constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer::
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>constexpr uint8_t [0, 255] </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>SysExの仕組み上128以上の数は送信できないのでI2Cの1byteを2byteに分割して送信している&#x2410; </dd></dl>
+
+</div>
+</div>
+<a id="afb09b5a4276f1d4af6ad2b09f14978a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb09b5a4276f1d4af6ad2b09f14978a2">&#9670;&nbsp;</a></span>noteOffCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void noteOffCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_m_i_d_i_1_1_note.html">MIDI::Note</a>&#160;</td>
+          <td class="paramname"><em>note</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Note off callback. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">note</td><td>input MIDI note </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_m_i_d_i_1_1_note.html" title="MIDI note.">MIDI::Note</a> </dd></dl>
+
+</div>
+</div>
+<a id="a8b374885bef32272108a51c43cad22ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b374885bef32272108a51c43cad22ac">&#9670;&nbsp;</a></span>noteOnCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void noteOnCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_m_i_d_i_1_1_note.html">MIDI::Note</a>&#160;</td>
+          <td class="paramname"><em>note</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Note on callback. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">note</td><td>input MIDI note </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_m_i_d_i_1_1_note.html" title="MIDI note.">MIDI::Note</a> </dd></dl>
 
 </div>
 </div>
@@ -278,6 +431,7 @@ constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer::
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>jade用SysExフォーマットに合わせて書き直す. 先頭2byteが非営利、デバイスIDになる。その後はmonome ii用の分割済データ </dd></dl>
 
 </div>
 </div>
@@ -342,7 +496,7 @@ constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer::
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_74b6a3b63f61c160c0f14b7a283a4c9b.html">Firmware</a></li><li class="navelem"><a class="el" href="dir_1d3c3c7140805695fa0274ab03b7eab2.html">src</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

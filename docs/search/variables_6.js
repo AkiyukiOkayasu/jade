@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logicd2_83',['logicD2',['../main_8cpp.html#afe3a94359e42e3da46270955b3b14574',1,'main.cpp']]]
+  ['logicd2_112',['logicD2',['../main_8cpp.html#afe3a94359e42e3da46270955b3b14574',1,'main.cpp']]]
 ];

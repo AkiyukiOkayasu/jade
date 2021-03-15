@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>jade: src/ii.hpp Source File</title>
+<title>jade: Firmware/src/ii.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,36 +105,46 @@ $(document).ready(function(){initNavTree('ii_8hpp_source.html',''); initResizabl
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespaceii_1_1_address.html">   18</a></span>&#160;<span class="keyword">namespace </span>Address</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a">   20</a></span>&#160;    constexpr uint8_t <a class="code" href="namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a">JustFriends</a> = 0x70; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceii_1_1_command.html">   24</a></span>&#160;<span class="keyword">namespace </span>Command</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">namespace </span><a class="code" href="namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a">JustFriends</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        constexpr uint8_t TR = 1;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        constexpr uint8_t RMODE = 2;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        constexpr uint8_t RUN = 3;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        constexpr uint8_t SHIFT = 4;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        constexpr uint8_t VTR = 5;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        constexpr uint8_t MODE = 6;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        constexpr uint8_t TICK = 7;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        constexpr uint8_t VOX = 8;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        constexpr uint8_t NOTE = 9;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        constexpr uint8_t GOD = 10;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        constexpr uint8_t TUNE = 11;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        constexpr uint8_t QT = 12;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    } <span class="comment">// namespace JustFriends</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} <span class="comment">// namespace Command</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;} <span class="comment">// namespace ii</span></div>
-<div class="ttc" id="anamespaceii_1_1_address_html_ae0349e36734912c6a3ceda8ba9f29e2a"><div class="ttname"><a href="namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a">ii::Address::JustFriends</a></div><div class="ttdeci">constexpr uint8_t JustFriends</div><div class="ttdoc">Just Friends.</div><div class="ttdef"><b>Definition:</b> ii.hpp:20</div></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespaceii_1_1_address.html#a2ad477a85b4b0662f5844e6d2da90381">   20</a></span>&#160;    constexpr uint8_t <a class="code" href="namespaceii_1_1_address.html#a2ad477a85b4b0662f5844e6d2da90381">crow</a> = 0x01;        </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a">   21</a></span>&#160;    constexpr uint8_t <a class="code" href="namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a">JustFriends</a> = 0x70; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespaceii_1_1_address.html#a3aa2a3bc2b813040bf849364afe17437">   22</a></span>&#160;    constexpr uint8_t <a class="code" href="namespaceii_1_1_address.html#a3aa2a3bc2b813040bf849364afe17437">Ansible</a> = 0x20;     </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespaceii_1_1_address.html#a9a69b5338f0dccef9f4757f009f963a1">   23</a></span>&#160;    constexpr uint8_t <a class="code" href="namespaceii_1_1_address.html#a9a69b5338f0dccef9f4757f009f963a1">ER301_1</a> = 0x31;     </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceii_1_1_address.html#a54556b2348840ac3ad4bc7ad4206f910">   24</a></span>&#160;    constexpr uint8_t <a class="code" href="namespaceii_1_1_address.html#a54556b2348840ac3ad4bc7ad4206f910">ER301_2</a> = 0x32;     </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespaceii_1_1_address.html#aef0ea5c9c6c3b70b5725416cf27eb73d">   25</a></span>&#160;    constexpr uint8_t <a class="code" href="namespaceii_1_1_address.html#aef0ea5c9c6c3b70b5725416cf27eb73d">ER301_3</a> = 0x33;     </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;} <span class="comment">// namespace Address</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespaceii_1_1_command.html">   29</a></span>&#160;<span class="keyword">namespace </span>Command</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">namespace </span><a class="code" href="namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a">JustFriends</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        constexpr uint8_t TR = 1;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        constexpr uint8_t RMODE = 2;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        constexpr uint8_t RUN = 3;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        constexpr uint8_t SHIFT = 4;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        constexpr uint8_t VTR = 5;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        constexpr uint8_t MODE = 6;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        constexpr uint8_t TICK = 7;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        constexpr uint8_t VOX = 8;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        constexpr uint8_t NOTE = 9;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        constexpr uint8_t GOD = 10;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        constexpr uint8_t TUNE = 11;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        constexpr uint8_t QT = 12;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    } <span class="comment">// namespace JustFriends</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace Command</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;} <span class="comment">// namespace ii</span></div>
+<div class="ttc" id="anamespaceii_1_1_address_html_a2ad477a85b4b0662f5844e6d2da90381"><div class="ttname"><a href="namespaceii_1_1_address.html#a2ad477a85b4b0662f5844e6d2da90381">ii::Address::crow</a></div><div class="ttdeci">constexpr uint8_t crow</div><div class="ttdoc">crow</div><div class="ttdef"><b>Definition:</b> ii.hpp:20</div></div>
+<div class="ttc" id="anamespaceii_1_1_address_html_a3aa2a3bc2b813040bf849364afe17437"><div class="ttname"><a href="namespaceii_1_1_address.html#a3aa2a3bc2b813040bf849364afe17437">ii::Address::Ansible</a></div><div class="ttdeci">constexpr uint8_t Ansible</div><div class="ttdoc">Ansible.</div><div class="ttdef"><b>Definition:</b> ii.hpp:22</div></div>
+<div class="ttc" id="anamespaceii_1_1_address_html_a54556b2348840ac3ad4bc7ad4206f910"><div class="ttname"><a href="namespaceii_1_1_address.html#a54556b2348840ac3ad4bc7ad4206f910">ii::Address::ER301_2</a></div><div class="ttdeci">constexpr uint8_t ER301_2</div><div class="ttdoc">ER-301 2.</div><div class="ttdef"><b>Definition:</b> ii.hpp:24</div></div>
+<div class="ttc" id="anamespaceii_1_1_address_html_a9a69b5338f0dccef9f4757f009f963a1"><div class="ttname"><a href="namespaceii_1_1_address.html#a9a69b5338f0dccef9f4757f009f963a1">ii::Address::ER301_1</a></div><div class="ttdeci">constexpr uint8_t ER301_1</div><div class="ttdoc">ER-301 1.</div><div class="ttdef"><b>Definition:</b> ii.hpp:23</div></div>
+<div class="ttc" id="anamespaceii_1_1_address_html_ae0349e36734912c6a3ceda8ba9f29e2a"><div class="ttname"><a href="namespaceii_1_1_address.html#ae0349e36734912c6a3ceda8ba9f29e2a">ii::Address::JustFriends</a></div><div class="ttdeci">constexpr uint8_t JustFriends</div><div class="ttdoc">Just Friends.</div><div class="ttdef"><b>Definition:</b> ii.hpp:21</div></div>
+<div class="ttc" id="anamespaceii_1_1_address_html_aef0ea5c9c6c3b70b5725416cf27eb73d"><div class="ttname"><a href="namespaceii_1_1_address.html#aef0ea5c9c6c3b70b5725416cf27eb73d">ii::Address::ER301_3</a></div><div class="ttdeci">constexpr uint8_t ER301_3</div><div class="ttdoc">ER-301 3.</div><div class="ttdef"><b>Definition:</b> ii.hpp:25</div></div>
 <div class="ttc" id="anamespaceii_html"><div class="ttname"><a href="namespaceii.html">ii</a></div><div class="ttdoc">Constants for ii.</div><div class="ttdef"><b>Definition:</b> ii.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="ii_8hpp.html">ii.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_74b6a3b63f61c160c0f14b7a283a4c9b.html">Firmware</a></li><li class="navelem"><a class="el" href="dir_1d3c3c7140805695fa0274ab03b7eab2.html">src</a></li><li class="navelem"><a class="el" href="ii_8hpp.html">ii.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
