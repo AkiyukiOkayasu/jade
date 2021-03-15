@@ -68,6 +68,7 @@ constexpr uint32_t getCompare (float frequency)
     return static_cast<uint32_t> ((timer::CLOCK / timer::PRESCALER) / frequency);
 }
 
+//=============== MIDI callback =========================================================================
 /** SysExのコールバック関数.
     @param sysEx 受信したデータ配列 (SysEx開始, 終了の0xF0と0xF7を除く)
     @param size データ配列の長さ
@@ -91,6 +92,39 @@ void sysExCallback (const uint8_t sysEx[], const uint8_t size)
     }
 }
 
+/** Note on callback
+    @param note input MIDI note
+    @see MIDI::Note
+*/
+void noteOnCallback (MIDI::Note note)
+{
+    digitalWrite (pin::GATE_OUT, HIGH);
+}
+
+/** Note off callback
+    @param note input MIDI note
+    @see MIDI::Note
+*/
+void noteOffCallback (MIDI::Note note)
+{
+    digitalWrite (pin::GATE_OUT, LOW);
+}
+
+/** Control change callback
+    @param cc input MIDI control change
+    @see MIDI::ControlChange
+*/
+void controlChangeCallback (MIDI::ControlChange cc)
+{
+    if (cc.value > 0)
+    {
+        digitalWrite (pin::LED, LOW);
+    }
+    else
+    {
+        digitalWrite (pin::LED, HIGH);
+    }
+}
 void setup()
 {
     SerialUSB.begin (115200);
@@ -106,26 +140,10 @@ void setup()
     timer4.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer4Callback);
     timer4.enable (true);
 
-    // MIDI
-    midiParser.onNoteOn = [] (MIDI::Note note) {
-        digitalWrite (pin::GATE_OUT, HIGH);
-    };
-
-    midiParser.onNoteOff = [] (MIDI::Note note) {
-        digitalWrite (pin::GATE_OUT, LOW);
-    };
-
-    midiParser.onControlChange = [] (MIDI::ControlChange cc) {
-        if (cc.value > 0)
-        {
-            digitalWrite (pin::LED, LOW);
-        }
-        else
-        {
-            digitalWrite (pin::LED, HIGH);
-        }
-    };
-
+    // MIDI callback
+    midiParser.onNoteOn = noteOnCallback;
+    midiParser.onNoteOff = noteOffCallback;
+    midiParser.onControlChange = controlChangeCallback;
     midiParser.onSysEx = sysExCallback;
 
     // I2Cピンの内部プルアップ
