@@ -22,6 +22,7 @@ constexpr uint32_t PRESCALER = 1;
 UsbMidiParser midiParser;
 
 std::atomic<bool> gateIn[4];
+constexpr uint8_t NUM_GATE_INPUTS = 4;
 
 /** 16bitハードウェアタイマーペリフェラル4と5を組み合わせて32bitタイマーを作らせる.
     @attention 32bitタイマーは偶数のタイマーでしかつくれない。SeeeduinoXIAOはタイマー3, 4, 5しかないのでタイマー4でしか作れないことになる。    
