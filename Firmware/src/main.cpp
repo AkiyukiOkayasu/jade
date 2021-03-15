@@ -11,6 +11,7 @@
 
 #include <Arduino.h>
 #include <Wire.h> // I2C
+#include <array>
 #include <atomic>
 
 namespace timer
@@ -21,8 +22,17 @@ constexpr uint32_t PRESCALER = 1;
 
 UsbMidiParser midiParser;
 
-std::atomic<bool> gateIn[4];
 constexpr uint8_t NUM_GATE_INPUTS = 4;
+
+enum class GateInputState : uint8_t
+{
+    Low = 0, ///< Nothing to do
+    Rise,    ///< MIDI note on
+    High,    ///< Nothing to do
+    Fall     ///< MIDI note off
+};
+
+std::array<std::atomic<GateInputState>, NUM_GATE_INPUTS> gateInputStates {};
 
 //============== Util ===========================================================================
 /** [0, 127]の範囲の2つのuint8を[0, 255]とする.
@@ -127,6 +137,61 @@ void controlChangeCallback (MIDI::ControlChange cc)
         digitalWrite (pin::LED, HIGH);
     }
 }
+
+//=============== Gate input callback =========================================================================
+void gate1Changed()
+{
+    const bool st = digitalRead (pin::GATE_IN1);
+    if (st == false)
+    {
+        gateInputStates[0] = GateInputState::Rise;
+    }
+    else
+    {
+        gateInputStates[0] = GateInputState::Fall;
+    }
+}
+
+void gate2Changed()
+{
+    const bool st = digitalRead (pin::GATE_IN2);
+    if (st == false)
+    {
+        gateInputStates[1] = GateInputState::Rise;
+    }
+    else
+    {
+        gateInputStates[1] = GateInputState::Fall;
+    }
+}
+
+void gate3Changed()
+{
+    const bool st = digitalRead (pin::GATE_IN3);
+    if (st == false)
+    {
+        gateInputStates[2] = GateInputState::Rise;
+    }
+    else
+    {
+        gateInputStates[2] = GateInputState::Fall;
+    }
+}
+
+void gate4Changed()
+{
+    const bool st = digitalRead (pin::GATE_IN4);
+    if (st == false)
+    {
+        gateInputStates[3] = GateInputState::Rise;
+    }
+    else
+    {
+        gateInputStates[3] = GateInputState::Fall;
+    }
+}
+
+//==================================================================================================
 void setup()
 {
     SerialUSB.begin (115200);
