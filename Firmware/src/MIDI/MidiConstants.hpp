@@ -51,3 +51,9 @@ namespace DeviceID
     constexpr uint8_t JADE = 0x76; ///< jade
 } // namespace DeviceID
 } // namespace SysEx
+
+namespace ChannelMessage
+{
+constexpr uint8_t NOTE_ON = 0x90;
+constexpr uint8_t NOTE_OFF = 0x80;
+} // namespace ChannelMessage
