@@ -86,7 +86,7 @@ constexpr uint32_t getCompare (float frequency)
 void sysExCallback (const uint8_t sysEx[], const uint8_t size)
 {
     // jadeに送られるSysExのバイト分割をするので必ず偶数サイズになる
-    if (size % 2 == 0)
+    if (size % 2 != 0)
         return;
 
     // 最初の2バイトはUniversalSysEx非営利, JadeのSysExデバイスIDとなる
