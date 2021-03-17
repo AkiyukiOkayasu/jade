@@ -137,56 +137,40 @@ void controlChangeCallback (MIDI::ControlChange cc)
 }
 
 //=============== Gate input callback =========================================================================
+/** Set current gate state to gateInputStates.
+    @param gate Gate input state True: high, False: low
+    @param index gateInputStates's index [0, 3]
+*/
+inline void updateGateInState (bool gate, uint8_t index)
+{
+    if (gate == false && gateInputStates[index] == GateInputState::Low)
+    {
+        gateInputStates[index] = GateInputState::Rise;
+    }
+    else if (gate == true && gateInputStates[index] == GateInputState::High)
+    {
+        gateInputStates[index] = GateInputState::Fall;
+    }
+}
+
 void gate1Changed()
 {
-    const bool st = digitalRead (pin::GATE_IN1);
-    if (st == false)
-    {
-        gateInputStates[0] = GateInputState::Rise;
-    }
-    else
-    {
-        gateInputStates[0] = GateInputState::Fall;
-    }
+    updateGateInState (digitalRead (pin::GATE_IN1), 0);
 }
 
 void gate2Changed()
 {
-    const bool st = digitalRead (pin::GATE_IN2);
-    if (st == false)
-    {
-        gateInputStates[1] = GateInputState::Rise;
-    }
-    else
-    {
-        gateInputStates[1] = GateInputState::Fall;
-    }
+    updateGateInState (digitalRead (pin::GATE_IN2), 1);
 }
 
 void gate3Changed()
 {
-    const bool st = digitalRead (pin::GATE_IN3);
-    if (st == false)
-    {
-        gateInputStates[2] = GateInputState::Rise;
-    }
-    else
-    {
-        gateInputStates[2] = GateInputState::Fall;
-    }
+    updateGateInState (digitalRead (pin::GATE_IN3), 2);
 }
 
 void gate4Changed()
 {
-    const bool st = digitalRead (pin::GATE_IN4);
-    if (st == false)
-    {
-        gateInputStates[3] = GateInputState::Rise;
-    }
-    else
-    {
-        gateInputStates[3] = GateInputState::Fall;
-    }
+    updateGateInState (digitalRead (pin::GATE_IN4), 3);
 }
 
 //==================================================================================================
@@ -251,12 +235,14 @@ void loop()
             // MIDI note on
             MidiUSB.sendMIDI (makeNoteOn (60, 127, i));
             MidiUSB.flush(); // TODO　MidiUSB.flush()をやるべきか？もしくはここでやるべきかを再検討
+            gateInputStates[i] = GateInputState::High;
         }
         else if (gateInputStates[i] == GateInputState::Fall)
         {
             // MIDI note off
             MidiUSB.sendMIDI (makeNoteOff (60, i));
             MidiUSB.flush(); // TODO　MidiUSB.flush()をやるべきか？もしくはここでやるべきかを再検討
+            gateInputStates[i] = GateInputState::Low;
         }
     }
 
