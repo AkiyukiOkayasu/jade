@@ -21,7 +21,7 @@ midiEventPacket_t makeNoteOn (uint8_t noteNumber, uint8_t velocity, uint8_t chan
 {
     midiEventPacket_t p;
     p.header = CIN::NOTE_ON;
-    p.byte1 = CIN::NOTE_ON | channel;
+    p.byte1 = ChannelMessage::NOTE_ON | channel;
     p.byte2 = noteNumber;
     p.byte3 = velocity;
     return p;
@@ -37,7 +37,7 @@ midiEventPacket_t makeNoteOff (uint8_t noteNumber, uint8_t channel)
 {
     midiEventPacket_t p;
     p.header = CIN::NOTE_OFF;
-    p.byte1 = CIN::NOTE_OFF | channel;
+    p.byte1 = ChannelMessage::NOTE_OFF | channel;
     p.byte2 = noteNumber;
     p.byte3 = 0;
     return p;
