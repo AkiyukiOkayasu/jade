@@ -237,25 +237,22 @@ void loop()
         midiParser.parse (rx);
     } while (rx.header != 0);
 
-#if 0
     for (uint8_t i = 0; i < gateInputStates.size(); ++i)
     {
         if (gateInputStates[i] == GateInputState::Rise)
         {
             // MIDI note on
             MidiUSB.sendMIDI (makeNoteOn (60, 127, i));
-            MidiUSB.flush(); // TODO　MidiUSB.flush()をやるべきか？もしくはここでやるべきかを再検討
             gateInputStates[i] = GateInputState::High;
         }
         else if (gateInputStates[i] == GateInputState::Fall)
         {
             // MIDI note off
             MidiUSB.sendMIDI (makeNoteOff (60, i));
-            MidiUSB.flush(); // TODO　MidiUSB.flush()をやるべきか？もしくはここでやるべきかを再検討
             gateInputStates[i] = GateInputState::Low;
         }
     }
-#endif
+    MidiUSB.flush();
 
     delayMicroseconds (50);
 }
