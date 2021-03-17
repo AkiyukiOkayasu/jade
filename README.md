@@ -15,8 +15,7 @@ It should be noted that this project is in its early stages.
 - PlatformIO
 
 ## Max for Live
-
-[![Image from Gyazo](https://i.gyazo.com/e338ff455424b274209aa6ef39cdd830.png)](https://gyazo.com/e338ff455424b274209aa6ef39cdd830)
+[![Image from Gyazo](https://i.gyazo.com/dc9b651591625e7b765a15cfd2cc8353.png)](https://gyazo.com/dc9b651591625e7b765a15cfd2cc8353)
 
 ## Document
 
