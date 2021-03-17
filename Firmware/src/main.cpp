@@ -85,11 +85,6 @@ constexpr uint32_t getCompare (float frequency)
 */
 void sysExCallback (const uint8_t sysEx[], const uint8_t size)
 {
-    SerialUSB.printf ("sysExBegin\n");
-    for (int i = 0; i < size; ++i)
-    {
-        SerialUSB.printf ("%d, ", sysEx[i]);
-    }
     // jadeに送られるSysExのバイト分割をするので必ず偶数サイズになる
     if (size % 2 != 0)
         return;
@@ -98,25 +93,22 @@ void sysExCallback (const uint8_t sysEx[], const uint8_t size)
     if (sysEx[0] == SysEx::ManufacturerID::NON_COMMERCIAL && sysEx[1] == SysEx::DeviceID::JADE)
     {
         const uint8_t addr = mergeBytes (sysEx[2], sysEx[3]);
-        SerialUSB.printf ("addr: %d, ", addr);
         Wire.beginTransmission (addr);
-
-        SerialUSB.printf ("data: ");
         for (uint_fast8_t i = 4; i < size; i += 2)
         {
             const uint8_t data = mergeBytes (sysEx[i], sysEx[i + 1]);
             Wire.write (data);
-            SerialUSB.printf ("%d, ", data);
         }
-        //  0 : Success
-        //  1 : Data too long
-        //  2 : NACK on transmit of address
-        //  3 : NACK on transmit of data
-        //  4 : Other error
+
+        /* I2C送信結果
+        0 : Success
+        1 : Data too long
+        2 : NACK on transmit of address
+        3 : NACK on transmit of data
+        4 : Other error
+        */
         uint8_t res = Wire.endTransmission();
-        SerialUSB.printf ("res: %d\n", res);
     }
-    SerialUSB.printf ("sysExEnd\n");
 }
 
 /** Note on callback
@@ -193,8 +185,6 @@ void gate4Changed()
 //==================================================================================================
 void setup()
 {
-    SerialUSB.begin (115200);
-
     // Timer
     timer4.enable (false);
     timer4.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler 1
@@ -240,7 +230,6 @@ void setup()
 
 void loop()
 {
-    //SerialUSB.printf ("hoge\n");
     midiEventPacket_t rx;
     do
     {
