@@ -66,7 +66,7 @@ void TC4_Handler()
 */
 void timer4Callback (void)
 {
-    digitalWrite (pin::CLOCK_OUT, ! digitalRead (pin::CLOCK_OUT));
+    //digitalWrite (pin::CLOCK_OUT, ! digitalRead (pin::CLOCK_OUT));
 }
 
 /** Calculate hardware timer compare value from frequency.
@@ -145,6 +145,41 @@ void controlChangeCallback (MIDI::ControlChange cc)
     }
 }
 
+std::atomic<uint8_t> MidiClockCounter { 0 };
+constexpr uint8_t MidiClockPulsePerBeat { 24 }; //4分音符あたりに24クロック
+
+/** SystemRealtime callback    
+    @param byte SystemRealtime is 1byte message.
+    @see SystemRealtime
+*/
+void systemRealtimeCallback (uint8_t byte)
+{
+    switch (byte)
+    {
+        case SystemRealtime::TIMING_CLOCK:
+            if (MidiClockCounter == 0)
+                digitalWrite (pin::CLOCK_OUT, 1);
+
+            if (MidiClockCounter == 1)
+                digitalWrite (pin::CLOCK_OUT, 0);
+
+            MidiClockCounter = MidiClockCounter + 1;
+            if (MidiClockCounter == MidiClockPulsePerBeat)
+                MidiClockCounter = 0;
+
+            break;
+        case SystemRealtime::START:
+            MidiClockCounter = 0;
+            break;
+        case SystemRealtime::CONTINUE:
+            break;
+        case SystemRealtime::STOP:
+            break;
+        default:
+            break;
+    }
+}
+
 //=============== Gate input callback =========================================================================
 /** Set current gate state to gateInputStates.
     @param gate Gate input state True: high, False: low
@@ -201,6 +236,7 @@ void setup()
     midiParser.onNoteOff = noteOffCallback;
     midiParser.onControlChange = controlChangeCallback;
     midiParser.onSysEx = sysExCallback;
+    midiParser.onSystemRealtime = systemRealtimeCallback;
 
     // I2Cピンの内部プルアップ
     pinMode (pin::I2C_SCL, INPUT_PULLUP);
@@ -209,9 +245,9 @@ void setup()
 
     // GPIO
     pinMode (pin::CLOCK_OUT, OUTPUT);
-    digitalWrite (pin::CLOCK_OUT, HIGH);
+    digitalWrite (pin::CLOCK_OUT, LOW);
     pinMode (pin::GATE_OUT, OUTPUT);
-    digitalWrite (pin::GATE_OUT, HIGH);
+    digitalWrite (pin::GATE_OUT, LOW);
     pinMode (pin::LED, OUTPUT);
     digitalWrite (pin::LED, HIGH);
 

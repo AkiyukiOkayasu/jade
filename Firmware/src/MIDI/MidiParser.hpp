@@ -63,6 +63,12 @@ public:
     */
     std::function<void (const uint8_t[], const uint8_t)> onSysEx;
 
+    /** SystemRealtime callback.
+        @param byte SystemRealtime is 1byte message.
+        @see SystemRealtime
+    */
+    std::function<void (uint8_t byte)> onSystemRealtime;
+
 private:
     constexpr uint8_t midiCh (const uint8_t statusByte) const
     {

@@ -95,6 +95,10 @@ void UsbMidiParser::parse (midiEventPacket_t p)
         case CIN::PITCH_BEND:
             break;
         case CIN::SYS_REALTIME:
+            if (onSystemRealtime != nullptr)
+            {
+                onSystemRealtime (p.byte1);
+            }
             break;
         default:
             break;
