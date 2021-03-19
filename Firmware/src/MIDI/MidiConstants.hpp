@@ -57,3 +57,13 @@ namespace ChannelMessage
 constexpr uint8_t NOTE_ON = 0x90;
 constexpr uint8_t NOTE_OFF = 0x80;
 } // namespace ChannelMessage
+
+namespace SystemRealtime
+{
+constexpr uint8_t TIMING_CLOCK = 0xF8;
+constexpr uint8_t START = 0xFA;
+constexpr uint8_t CONTINUE = 0xFB;
+constexpr uint8_t STOP = 0xFC;
+constexpr uint8_t ACTIVE_SENSING = 0xFE;
+constexpr uint8_t SYSTEM_RESET = 0xFF;
+} // namespace SystemRealtime
