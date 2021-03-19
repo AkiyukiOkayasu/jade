@@ -151,6 +151,7 @@ constexpr uint8_t MidiClockPulsePerBeat { 24 }; //4分音符あたりに24クロ
 /** SystemRealtime callback    
     @param byte SystemRealtime is 1byte message.
     @see SystemRealtime
+    @todo 再生再開時のMidiClockCounterの処遇の検討。クロックの頭が揃わない問題がある。
 */
 void systemRealtimeCallback (uint8_t byte)
 {
@@ -172,6 +173,7 @@ void systemRealtimeCallback (uint8_t byte)
             MidiClockCounter = 0;
             break;
         case SystemRealtime::CONTINUE:
+            // TODO 再生再開時のMidiClockCounterの処遇の検討。クロックの頭が揃わない問題がある。
             break;
         case SystemRealtime::STOP:
             break;
