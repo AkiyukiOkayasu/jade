@@ -1,5 +1,5 @@
 // AUTOMATICALLY GENERATED FILE. PLEASE DO NOT MODIFY IT MANUALLY
-
+//
 // PIO Unified Debugger
 //
 // Documentation: https://docs.platformio.org/page/plus/debugging.html
@@ -15,12 +15,12 @@
             "executable": "/Users/akiyuki/Documents/jade/Firmware/.pio/build/seeed_xiao/firmware.elf",
             "projectEnvName": "seeed_xiao",
             "toolchainBinDir": "/Users/akiyuki/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "internalConsoleOptions": "openOnSessionStart",
             "svdPath": "/Users/akiyuki/.platformio/platforms/atmelsam/misc/svd/ATSAMD21G18A.svd",
             "preLaunchTask": {
                 "type": "PlatformIO",
                 "task": "Pre-Debug"
-            },
-            "internalConsoleOptions": "openOnSessionStart"
+            }
         },
         {
             "type": "platformio-debug",
@@ -29,8 +29,8 @@
             "executable": "/Users/akiyuki/Documents/jade/Firmware/.pio/build/seeed_xiao/firmware.elf",
             "projectEnvName": "seeed_xiao",
             "toolchainBinDir": "/Users/akiyuki/.platformio/packages/toolchain-gccarmnoneeabi/bin",
-            "svdPath": "/Users/akiyuki/.platformio/platforms/atmelsam/misc/svd/ATSAMD21G18A.svd",
-            "internalConsoleOptions": "openOnSessionStart"
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "/Users/akiyuki/.platformio/platforms/atmelsam/misc/svd/ATSAMD21G18A.svd"
         }
     ]
 }
