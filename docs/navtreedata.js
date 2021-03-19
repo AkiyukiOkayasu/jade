@@ -39,6 +39,8 @@ var NAVTREE =
       [ "LICENSE", "md__r_e_a_d_m_e.html#autotoc_md10", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
+    [ "NOTE_OFF", "_midi_constants_8hpp.html#aa3971d457804c7a2e157411363f21023", null ],
+    [ "NOTE_ON", "_midi_constants_8hpp.html#a3635dbdccda35045930e42d4ad9890bc", null ],
     [ "CHANNEL_PRESSURE", "namespace_c_i_n.html#ae97167fc16ffc79f1cc311c0129ac295", null ],
     [ "CONTROL_CHANGE", "namespace_c_i_n.html#a6c9ca815d16e90e0a758a716ef9a7d3e", null ],
     [ "NOTE_OFF", "namespace_c_i_n.html#a3b1a62ef705205ae714623a40e25302a", null ],
@@ -77,8 +79,12 @@ var NAVTREE =
     [ "REALTIME", "_midi_constants_8hpp.html#a087c47c9475696e16fd6e34aa619b52b", null ],
     [ "BEGIN", "namespace_sys_ex.html#a2335916458251039d36e7e5c9e56847f", null ],
     [ "END", "namespace_sys_ex.html#aa5f15a89040e011994356d89063eefc6", null ],
-    [ "CLOCK", "main_8cpp.html#a3777c22d1f4db1f6c8f8eab2faae9895", null ],
-    [ "PRESCALER", "main_8cpp.html#af81d0254097ce1c433ebcc1a00b87a5f", null ],
+    [ "ACTIVE_SENSING", "_midi_constants_8hpp.html#a576ca79c3f3c1e6d1746c9e39fde2b3d", null ],
+    [ "CONTINUE", "_midi_constants_8hpp.html#aa6f9065521449323c62d9752103e5294", null ],
+    [ "START", "_midi_constants_8hpp.html#af8275acc8e7a1f23f6611eddde440ffb", null ],
+    [ "STOP", "_midi_constants_8hpp.html#a7724585def85c9a06d152d3e98c66ff2", null ],
+    [ "SYSTEM_RESET", "_midi_constants_8hpp.html#a6046b2f40f8fbee830dac56ba6381090", null ],
+    [ "TIMING_CLOCK", "_midi_constants_8hpp.html#afe5a3a86380fb34c9a83940e7fab0148", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ]
     ] ],

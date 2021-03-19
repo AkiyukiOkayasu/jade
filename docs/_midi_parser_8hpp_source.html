@@ -135,39 +135,42 @@ $(document).ready(function(){initNavTree('_midi_parser_8hpp_source.html',''); in
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_usb_midi_parser.html#aaf84bebb8077a8da3775fbc32a37b8f7">   64</a></span>&#160;    std::function&lt;void (<span class="keyword">const</span> uint8_t[], <span class="keyword">const</span> uint8_t)&gt; <a class="code" href="class_usb_midi_parser.html#aaf84bebb8077a8da3775fbc32a37b8f7">onSysEx</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    constexpr uint8_t midiCh (<span class="keyword">const</span> uint8_t statusByte)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// MIDI StatusByte下位4bit: MIDI channel</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> statusByte &amp; 0x0F;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    constexpr uint8_t cableNumber (<span class="keyword">const</span> uint8_t header)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="comment">// Header上位4bit: CableNumber</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> (header &gt;&gt; 4) &amp; 0x0F;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    constexpr uint8_t codeIndexNumber (<span class="keyword">const</span> uint8_t header)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment">// Header下位4bit: CodeIndexNumber</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> header &amp; 0x0F;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> pushSysEx (uint8_t d)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        sysExData[sysExIndex] = d;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        sysExIndex++;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_usb_midi_parser.html#aae4153308a927d2087d0e6981d5512ae">   70</a></span>&#160;    std::function&lt;void (uint8_t <span class="keywordtype">byte</span>)&gt; <a class="code" href="class_usb_midi_parser.html#aae4153308a927d2087d0e6981d5512ae">onSystemRealtime</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    constexpr uint8_t midiCh (<span class="keyword">const</span> uint8_t statusByte)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">// MIDI StatusByte下位4bit: MIDI channel</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> statusByte &amp; 0x0F;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    constexpr uint8_t cableNumber (<span class="keyword">const</span> uint8_t header)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment">// Header上位4bit: CableNumber</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> (header &gt;&gt; 4) &amp; 0x0F;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    constexpr uint8_t codeIndexNumber (<span class="keyword">const</span> uint8_t header)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">// Header下位4bit: CodeIndexNumber</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> header &amp; 0x0F;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">static</span> constexpr uint8_t MAX_SYSEX_LENGTH = 32;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">bool</span> receivingSysEx = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    uint8_t sysExIndex = 0;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    std::array&lt;uint8_t, MAX_SYSEX_LENGTH&gt; sysExData;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> pushSysEx (uint8_t d)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        sysExData[sysExIndex] = d;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        sysExIndex++;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">static</span> constexpr uint8_t MAX_SYSEX_LENGTH = 32;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> receivingSysEx = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    uint8_t sysExIndex = 0;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    std::array&lt;uint8_t, MAX_SYSEX_LENGTH&gt; sysExData;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
 <div class="ttc" id="a_midi_constants_8hpp_html"><div class="ttname"><a href="_midi_constants_8hpp.html">MidiConstants.hpp</a></div><div class="ttdoc">Constants about MIDI.</div></div>
 <div class="ttc" id="aclass_usb_midi_parser_html"><div class="ttname"><a href="class_usb_midi_parser.html">UsbMidiParser</a></div><div class="ttdoc">USB-MIDI event parser.</div><div class="ttdef"><b>Definition:</b> MidiParser.hpp:37</div></div>
 <div class="ttc" id="aclass_usb_midi_parser_html_a2b860bc3dfbb90ffca4387f1fbb5e236"><div class="ttname"><a href="class_usb_midi_parser.html#a2b860bc3dfbb90ffca4387f1fbb5e236">UsbMidiParser::onNoteOff</a></div><div class="ttdeci">std::function&lt; void(MIDI::Note)&gt; onNoteOff</div><div class="ttdoc">Note off callback.</div><div class="ttdef"><b>Definition:</b> MidiParser.hpp:51</div></div>
+<div class="ttc" id="aclass_usb_midi_parser_html_aae4153308a927d2087d0e6981d5512ae"><div class="ttname"><a href="class_usb_midi_parser.html#aae4153308a927d2087d0e6981d5512ae">UsbMidiParser::onSystemRealtime</a></div><div class="ttdeci">std::function&lt; void(uint8_t byte)&gt; onSystemRealtime</div><div class="ttdoc">SystemRealtime callback.</div><div class="ttdef"><b>Definition:</b> MidiParser.hpp:70</div></div>
 <div class="ttc" id="aclass_usb_midi_parser_html_aaf84bebb8077a8da3775fbc32a37b8f7"><div class="ttname"><a href="class_usb_midi_parser.html#aaf84bebb8077a8da3775fbc32a37b8f7">UsbMidiParser::onSysEx</a></div><div class="ttdeci">std::function&lt; void(const uint8_t[], const uint8_t)&gt; onSysEx</div><div class="ttdoc">SysEx callback.</div><div class="ttdef"><b>Definition:</b> MidiParser.hpp:64</div></div>
 <div class="ttc" id="aclass_usb_midi_parser_html_ad22553fff56f0f1c892e3a43c4c61000"><div class="ttname"><a href="class_usb_midi_parser.html#ad22553fff56f0f1c892e3a43c4c61000">UsbMidiParser::onNoteOn</a></div><div class="ttdeci">std::function&lt; void(MIDI::Note)&gt; onNoteOn</div><div class="ttdoc">Note on callback.</div><div class="ttdef"><b>Definition:</b> MidiParser.hpp:45</div></div>
 <div class="ttc" id="aclass_usb_midi_parser_html_ad4d08dfd9f9efab3046c234c3107c93a"><div class="ttname"><a href="class_usb_midi_parser.html#ad4d08dfd9f9efab3046c234c3107c93a">UsbMidiParser::onControlChange</a></div><div class="ttdeci">std::function&lt; void(MIDI::ControlChange)&gt; onControlChange</div><div class="ttdoc">Control change callback.</div><div class="ttdef"><b>Definition:</b> MidiParser.hpp:57</div></div>

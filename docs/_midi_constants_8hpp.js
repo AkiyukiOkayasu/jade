@@ -1,24 +1,32 @@
 var _midi_constants_8hpp =
 [
+    [ "ACTIVE_SENSING", "_midi_constants_8hpp.html#a576ca79c3f3c1e6d1746c9e39fde2b3d", null ],
     [ "ALL", "_midi_constants_8hpp.html#ac7fcbcbf49e8d2d54e40f30e7b21aa69", null ],
     [ "BEGIN", "_midi_constants_8hpp.html#a2335916458251039d36e7e5c9e56847f", null ],
     [ "CHANNEL_PRESSURE", "_midi_constants_8hpp.html#ae97167fc16ffc79f1cc311c0129ac295", null ],
+    [ "CONTINUE", "_midi_constants_8hpp.html#aa6f9065521449323c62d9752103e5294", null ],
     [ "CONTROL_CHANGE", "_midi_constants_8hpp.html#a6c9ca815d16e90e0a758a716ef9a7d3e", null ],
     [ "END", "_midi_constants_8hpp.html#aa5f15a89040e011994356d89063eefc6", null ],
     [ "JADE", "_midi_constants_8hpp.html#a23ed785a6165f1c75c7bed93f741fbd9", null ],
     [ "NON_COMMERCIAL", "_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52", null ],
     [ "NON_REALTIME", "_midi_constants_8hpp.html#a5018affcd5879d24dbc4cfe092e25fb3", null ],
     [ "NOTE_OFF", "_midi_constants_8hpp.html#a3b1a62ef705205ae714623a40e25302a", null ],
+    [ "NOTE_OFF", "_midi_constants_8hpp.html#aa3971d457804c7a2e157411363f21023", null ],
     [ "NOTE_ON", "_midi_constants_8hpp.html#a90e05237b3ee2bad82033bdd7e1ee12d", null ],
+    [ "NOTE_ON", "_midi_constants_8hpp.html#a3635dbdccda35045930e42d4ad9890bc", null ],
     [ "PITCH_BEND", "_midi_constants_8hpp.html#aee20029b26bd302f72413960607fca1a", null ],
     [ "POLYPHONIC_KEY_PRESSURE", "_midi_constants_8hpp.html#a205a26c97c952d1bdf1606e21e27efd6", null ],
     [ "PROGRAM_CHANGE", "_midi_constants_8hpp.html#a2fde08d1725813144398e515e6e2bdc7", null ],
     [ "REALTIME", "_midi_constants_8hpp.html#a087c47c9475696e16fd6e34aa619b52b", null ],
+    [ "START", "_midi_constants_8hpp.html#af8275acc8e7a1f23f6611eddde440ffb", null ],
+    [ "STOP", "_midi_constants_8hpp.html#a7724585def85c9a06d152d3e98c66ff2", null ],
     [ "SYS_REALTIME", "_midi_constants_8hpp.html#ae1924f325d574951655f6cbaefd2ba1b", null ],
     [ "SYSCOMMON_2BYTES", "_midi_constants_8hpp.html#aa029c6af39b6c67b694a22e24128fc48", null ],
     [ "SYSCOMMON_3BYTES", "_midi_constants_8hpp.html#a178fb6dc4a80e7f0d3c0db9124406cab", null ],
     [ "SYSEX_END_1BYTE", "_midi_constants_8hpp.html#a22808258139db677fa986c04690af0e4", null ],
     [ "SYSEX_END_2BYTES", "_midi_constants_8hpp.html#aa73065a5e40196dd6f5ea590759e02ec", null ],
     [ "SYSEX_END_3BYTES", "_midi_constants_8hpp.html#afd21c608516ec74842066d24c3a716aa", null ],
-    [ "SYSEX_START_OR_CONTINUE", "_midi_constants_8hpp.html#a850b1ba5317c2ab3f38a99294b793016", null ]
+    [ "SYSEX_START_OR_CONTINUE", "_midi_constants_8hpp.html#a850b1ba5317c2ab3f38a99294b793016", null ],
+    [ "SYSTEM_RESET", "_midi_constants_8hpp.html#a6046b2f40f8fbee830dac56ba6381090", null ],
+    [ "TIMING_CLOCK", "_midi_constants_8hpp.html#afe5a3a86380fb34c9a83940e7fab0148", null ]
 ];

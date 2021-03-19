@@ -137,6 +137,22 @@ $(document).ready(function(){initNavTree('_midi_constants_8hpp_source.html','');
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="_midi_constants_8hpp.html#a23ed785a6165f1c75c7bed93f741fbd9">   51</a></span>&#160;    constexpr uint8_t <a class="code" href="_midi_constants_8hpp.html#a23ed785a6165f1c75c7bed93f741fbd9">JADE</a> = 0x76; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace DeviceID</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace SysEx</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">namespace </span>ChannelMessage</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;constexpr uint8_t NOTE_ON = 0x90;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;constexpr uint8_t NOTE_OFF = 0x80;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace ChannelMessage</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">namespace </span>SystemRealtime</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;constexpr uint8_t TIMING_CLOCK = 0xF8;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;constexpr uint8_t START = 0xFA;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;constexpr uint8_t CONTINUE = 0xFB;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;constexpr uint8_t STOP = 0xFC;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;constexpr uint8_t ACTIVE_SENSING = 0xFE;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;constexpr uint8_t SYSTEM_RESET = 0xFF;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace SystemRealtime</span></div>
 <div class="ttc" id="a_midi_constants_8hpp_html_a087c47c9475696e16fd6e34aa619b52b"><div class="ttname"><a href="_midi_constants_8hpp.html#a087c47c9475696e16fd6e34aa619b52b">SysEx::ManufacturerID::REALTIME</a></div><div class="ttdeci">constexpr uint8_t REALTIME</div><div class="ttdoc">Universal SysEx リアルタイム</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:45</div></div>
 <div class="ttc" id="a_midi_constants_8hpp_html_a1a71abb82df612df59af7716e806fe52"><div class="ttname"><a href="_midi_constants_8hpp.html#a1a71abb82df612df59af7716e806fe52">SysEx::ManufacturerID::NON_COMMERCIAL</a></div><div class="ttdeci">constexpr uint8_t NON_COMMERCIAL</div><div class="ttdoc">Universal SysEx 非営利</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:43</div></div>
 <div class="ttc" id="a_midi_constants_8hpp_html_a23ed785a6165f1c75c7bed93f741fbd9"><div class="ttname"><a href="_midi_constants_8hpp.html#a23ed785a6165f1c75c7bed93f741fbd9">SysEx::DeviceID::JADE</a></div><div class="ttdeci">constexpr uint8_t JADE</div><div class="ttdoc">jade</div><div class="ttdef"><b>Definition:</b> MidiConstants.hpp:51</div></div>

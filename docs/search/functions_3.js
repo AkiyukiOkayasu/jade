@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['noteoffcallback_89',['noteOffCallback',['../main_8cpp.html#afb09b5a4276f1d4af6ad2b09f14978a2',1,'main.cpp']]],
-  ['noteoncallback_90',['noteOnCallback',['../main_8cpp.html#a8b374885bef32272108a51c43cad22ac',1,'main.cpp']]]
+  ['sysexcallback_89',['sysExCallback',['../main_8cpp.html#a8ccd21460649ec3457dc0d4a60e56b1d',1,'main.cpp']]],
+  ['systemrealtimecallback_90',['systemRealtimeCallback',['../main_8cpp.html#a3abe34b5976911f0902e5d2dc85f671e',1,'main.cpp']]]
 ];
