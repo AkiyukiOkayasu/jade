@@ -4,7 +4,6 @@
     @copyright Copyright (c) 2021 - Akiyuki Okayasu
 */
 
-#include "Adafruit_ZeroTimer.h"
 #include "MIDI/MIDIGenerator.hpp"
 #include "MIDI/MIDIParser.hpp"
 #include "MIDIUSB.h"
@@ -14,12 +13,6 @@
 #include <Wire.h> // I2C
 #include <array>
 #include <atomic>
-
-namespace timer
-{
-constexpr uint32_t CLOCK = 48000000;
-constexpr uint32_t PRESCALER = 1;
-} // namespace timer
 
 UsbMidiParser midiParser;
 
@@ -45,37 +38,6 @@ std::array<std::atomic<GateInputState>, NUM_GATE_INPUTS> gateInputStates {};
 constexpr uint8_t mergeBytes (const uint8_t msb, const uint8_t lsb)
 {
     return (msb << 4) | (lsb & 0x0F);
-}
-
-//=============== Timer =========================================================================
-/** 16bitハードウェアタイマーペリフェラル4と5を組み合わせて32bitタイマーを作らせる.
-    @attention 32bitタイマーは偶数のタイマーでしかつくれない。SeeeduinoXIAOはタイマー3, 4, 5しかないのでタイマー4でしか作れないことになる。    
-*/
-Adafruit_ZeroTimer timer4 = Adafruit_ZeroTimer (4);
-
-/** Hardware timer peripheeral handlers.
-    @attention これがないとAdafruit_ZeroTimer.hがうごかない
-*/
-void TC4_Handler()
-{
-    Adafruit_ZeroTimer::timerHandler (4); //Clear timer flag
-}
-
-/** タイマーのユーザーコールバック関数.
-    @todo Single Cycle IOBUSでGPIOトグルの高速化を検討する
-*/
-void timer4Callback (void)
-{
-    //digitalWrite (pin::CLOCK_OUT, ! digitalRead (pin::CLOCK_OUT));
-}
-
-/** Calculate hardware timer compare value from frequency.
-    @param frequency Hz
-    @return constexpr uint32_t 
-*/
-constexpr uint32_t getCompare (float frequency)
-{
-    return static_cast<uint32_t> ((timer::CLOCK / timer::PRESCALER) / frequency);
 }
 
 //=============== MIDI callback =========================================================================
@@ -222,17 +184,6 @@ void gate4Changed()
 //==================================================================================================
 void setup()
 {
-    // Timer
-    timer4.enable (false);
-    timer4.configure (TC_CLOCK_PRESCALER_DIV1,     // prescaler 1
-                      TC_COUNTER_SIZE_32BIT,       // 32bitタイマー
-                      TC_WAVE_GENERATION_MATCH_PWM // PWM mode
-    );
-    uint32_t compare3 = getCompare (5.0f); //Timerの周波数(Hz)
-    timer4.setCompare (0, compare3);
-    timer4.setCallback (true, TC_CALLBACK_CC_CHANNEL0, timer4Callback);
-    timer4.enable (true);
-
     // MIDI callback
     midiParser.onNoteOn = noteOnCallback;
     midiParser.onNoteOff = noteOffCallback;
