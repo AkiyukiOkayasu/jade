@@ -15,7 +15,10 @@ It should be noted that this project is in its early stages.
 - PlatformIO
 
 ## Max for Live
-[![Image from Gyazo](https://i.gyazo.com/dc9b651591625e7b765a15cfd2cc8353.png)](https://gyazo.com/dc9b651591625e7b765a15cfd2cc8353)
+
+Max for Live devices for Just Friends are available.  
+Max for Live devices for ER-301 will be added soon.  
+[![Image from Gyazo](https://i.gyazo.com/4216f0453e2cefc7fa490f93da770d71.png)](https://gyazo.com/4216f0453e2cefc7fa490f93da770d71)
 
 ## Document
 
@@ -23,6 +26,7 @@ It should be noted that this project is in its early stages.
 
 ## Data format
 
+The SysEx specification for communicating with Jade will be documented in the future.  
 SysEx can only send values between 0 and 127. Therefore, 1 byte (0~255) of monome ii is divided into 2 bytes and sent.  
 Like this.  
 
