@@ -28,6 +28,9 @@ namespace Address
 /// Command byte.
 namespace Command
 {
+    /** ii command for JustFriends.
+        https://github.com/monome/crow/blob/main/lua/ii/jf.lua
+    */
     namespace JustFriends
     {
         constexpr uint8_t TR = 1;
@@ -43,5 +46,21 @@ namespace Command
         constexpr uint8_t TUNE = 11;
         constexpr uint8_t QT = 12;
     } // namespace JustFriends
+
+    /** ii command for ER-301.
+        https://github.com/monome/crow/blob/main/lua/ii/er301.lua
+    */
+    namespace ER301
+    {
+        constexpr uint8_t TR = 0x00;       ///< Set TR port to state
+        constexpr uint8_t TR_TOG = 0x01;   ///< Toggle TR
+        constexpr uint8_t TR_PULSE = 0x05; ///< Pulse TR port using TO.TR.TIME/S/M as an interval
+        constexpr uint8_t TR_TIME = 0x02;  ///< Time for TR.PULSE port in ms
+        constexpr uint8_t TR_POL = 0x06;   ///< Polarity for TO.TR.PULSE port set to rising (0/1)
+        constexpr uint8_t CV = 0x10;       ///< Set port CV to volts (bipolar), following SLEW time
+        constexpr uint8_t CV_SLEW = 0x12;  ///< Set CV slew time in ms
+        constexpr uint8_t CV_SET = 0x11;   ///< Set CV port to volts(bipolar), ignoring SLEW time
+        constexpr uint8_t CV_OFF = 0x15;   ///< CV port offset, volts added at final stage
+    }                                      // namespace ER301
 } // namespace Command
 } // namespace ii
