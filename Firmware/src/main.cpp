@@ -108,7 +108,7 @@ void controlChangeCallback (MIDI::ControlChange cc)
 }
 
 std::atomic<uint8_t> MidiClockCounter { 0 };
-constexpr uint8_t MidiClockPulsePerBeat { 24 }; //4分音符あたりに24クロック
+constexpr uint8_t MaxMidiClockCounter { 6 }; //16分音符間隔のクロック。MIDIクロックが4分音符あたりに24クロックなので、6クロック分が16分音符。
 
 /** SystemRealtime callback    
     @param byte SystemRealtime is 1byte message.
@@ -127,7 +127,7 @@ void systemRealtimeCallback (uint8_t byte)
                 digitalWrite (pin::CLOCK_OUT, 0);
 
             MidiClockCounter = MidiClockCounter + 1;
-            if (MidiClockCounter == MidiClockPulsePerBeat)
+            if (MidiClockCounter == MaxMidiClockCounter)
                 MidiClockCounter = 0;
 
             break;
