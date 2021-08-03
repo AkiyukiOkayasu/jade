@@ -39,25 +39,25 @@ public:
     void parse (midiEventPacket_t p);
 
     /** Note on callback.
-        You can assign a lambda to this callback object to have it called when the MIDI note on is comed.
+        You can assign a lambda to this callback object to have it called when the MIDI note on is come.
         @see MIDI::Note        
     */
     std::function<void (MIDI::Note)> onNoteOn;
 
     /** Note off callback.
-        You can assign a lambda to this callback object to have it called when the MIDI note off is comed.
+        You can assign a lambda to this callback object to have it called when the MIDI note off is come.
         @see MIDI::Note
     */
     std::function<void (MIDI::Note)> onNoteOff;
 
     /** Control change callback.
-        You can assign a lambda to this callback object to have it called when the MIDI control change is comed.
+        You can assign a lambda to this callback object to have it called when the MIDI control change is come.
         @see MIDI::ControlChange        
     */
     std::function<void (MIDI::ControlChange)> onControlChange;
 
     /** SysEx callback.
-        You can assign a lambda to this callback object to have it called when the MIDI SysEx is comed.
+        You can assign a lambda to this callback object to have it called when the MIDI SysEx is come.
         @param SysExByteArray
         @param SysExByteArraySize
     */
