@@ -32,8 +32,10 @@ void UsbMidiParser::parse (midiEventPacket_t p)
             if (p.byte1 == SysEx::END)
             {
                 receivingSysEx = false;
-                if (onSysEx != nullptr)
+                if (onSysEx)
+                {
                     onSysEx (sysExData.data(), sysExIndex);
+                }
             }
             break;
         case CIN::SYSEX_END_2BYTES:
@@ -41,8 +43,10 @@ void UsbMidiParser::parse (midiEventPacket_t p)
             {
                 pushSysEx (p.byte1);
                 receivingSysEx = false;
-                if (onSysEx != nullptr)
+                if (onSysEx)
+                {
                     onSysEx (sysExData.data(), sysExIndex);
+                }
             }
             break;
         case CIN::SYSEX_END_3BYTES:
@@ -51,12 +55,14 @@ void UsbMidiParser::parse (midiEventPacket_t p)
                 pushSysEx (p.byte1);
                 pushSysEx (p.byte2);
                 receivingSysEx = false;
-                if (onSysEx != nullptr)
+                if (onSysEx)
+                {
                     onSysEx (sysExData.data(), sysExIndex);
+                }
             }
             break;
         case CIN::NOTE_OFF:
-            if (onNoteOff != nullptr)
+            if (onNoteOff)
             {
                 MIDI::Note note = { p.byte2, p.byte3, channel };
                 onNoteOff (note);
@@ -68,21 +74,25 @@ void UsbMidiParser::parse (midiEventPacket_t p)
             MIDI::Note note = { p.byte2, p.byte3, channel };
             if (p.byte3 == 0) // velocity 0 = noteOFF
             {
-                if (onNoteOff != nullptr)
+                if (onNoteOff)
+                {
                     onNoteOff (note);
+                }
 
                 break;
             }
 
-            if (onNoteOn != nullptr)
+            if (onNoteOn)
+            {
                 onNoteOn (note);
+            }
 
             break;
         }
         case CIN::POLYPHONIC_KEY_PRESSURE:
             break;
         case CIN::CONTROL_CHANGE:
-            if (onControlChange != nullptr)
+            if (onControlChange)
             {
                 MIDI::ControlChange cc = { p.byte2, p.byte3, channel };
                 onControlChange (cc);
@@ -95,7 +105,7 @@ void UsbMidiParser::parse (midiEventPacket_t p)
         case CIN::PITCH_BEND:
             break;
         case CIN::SYS_REALTIME:
-            if (onSystemRealtime != nullptr)
+            if (onSystemRealtime)
             {
                 onSystemRealtime (p.byte1);
             }
